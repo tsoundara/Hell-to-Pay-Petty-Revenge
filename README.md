@@ -1,1 +1,1 @@
-#Game Prototype|  
+<h1>Game Prototype</h1>
