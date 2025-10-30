@@ -1,4 +1,4 @@
-extends Node
+extends CharacterBody2D
 
 # Export variables for easy adjustment in the editor
 @export var speed: float = 200.0
@@ -31,4 +31,5 @@ func _process(delta: float) -> void:
 		_velocity.y = jump_velocity
 	
 # Move the character
-move_and_slide(_velocity, Vector2.UP)
+velocity = _velocity
+move_and_slide()
