@@ -35,7 +35,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1jxqw"]
@@ -44,10 +44,11 @@ height = 36.0
 [node name="Player" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(11, -24)
 sprite_frames = SubResource("SpriteFrames_2hs0m")
 animation = &"Idle"
 frame_progress = 0.6075185
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-10, 7)
+position = Vector2(1, -18)
 shape = SubResource("CapsuleShape2D_1jxqw")
