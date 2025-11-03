@@ -179,7 +179,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n7ghd")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack",
 "speed": 5.0
 }, {
@@ -328,13 +328,16 @@ size = Vector2(18, 14)
 [node name="Player" type="CharacterBody2D"]
 safe_margin = 2.045
 script = ExtResource("1_im2xp")
+speed = 250.0
+jump_velocity = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -64)
 sprite_frames = SubResource("SpriteFrames_2hs0m")
 animation = &"Attack"
 autoplay = "Idle"
-frame_progress = 0.021943497
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, -33)
@@ -343,5 +346,8 @@ shape = SubResource("RectangleShape2D_t7qi1")
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+visible = false
 position = Vector2(26, -48)
 shape = SubResource("RectangleShape2D_im2xp")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
