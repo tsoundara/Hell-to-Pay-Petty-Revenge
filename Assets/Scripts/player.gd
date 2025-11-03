@@ -17,7 +17,7 @@ func _input(event: InputEvent) -> void:
 		is_attacking = true
 		velocity.x = 0 # Stop moving immediately when attacking on the ground
 		animated_sprite.play("attack")
-        # You'll use an animation signal later to disable the attack flag
+		# You'll use an animation signal later to disable the attack flag
 
 func _physics_process(delta: float) -> void:
 	# Apply gravity
@@ -56,5 +56,5 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-	if animated_sprite.animation == "attack":
+	if animated_sprite.animation == "Attack":
 		is_attacking = false
