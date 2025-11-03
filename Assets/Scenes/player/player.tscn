@@ -1,5 +1,6 @@
-[gd_scene load_steps=47 format=3 uid="uid://dswyscray02pf"]
+[gd_scene load_steps=49 format=3 uid="uid://dswyscray02pf"]
 
+[ext_resource type="Script" uid="uid://dytydrtnh07oa" path="res://Assets/Scripts/player.gd" id="1_im2xp"]
 [ext_resource type="Texture2D" uid="uid://b2c3kmm8ttfhg" path="res://Assets/Sprites/Player/Attack.png" id="1_sweqy"]
 [ext_resource type="Texture2D" uid="uid://cw622oafvwtfh" path="res://Assets/Sprites/Player/Dead.png" id="2_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://c2s1b5axxq374" path="res://Assets/Sprites/Player/Hurt.png" id="3_1jxqw"]
@@ -118,6 +119,10 @@ region = Rect2(1024, 0, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_khis8"]
 atlas = ExtResource("5_b26j0")
 region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7qi1"]
+atlas = ExtResource("4_dw050")
+region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
 atlas = ExtResource("6_2hs0m")
@@ -272,6 +277,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_t7qi1")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_1jxqw")
 }, {
 "duration": 1.0,
@@ -306,19 +319,19 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1jxqw"]
-radius = 11.0
-height = 74.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t7qi1"]
+size = Vector2(20, 66)
 
 [node name="Player" type="CharacterBody2D"]
+safe_margin = 2.045
+script = ExtResource("1_im2xp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -64)
 sprite_frames = SubResource("SpriteFrames_2hs0m")
 animation = &"Idle"
+autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -32)
-shape = SubResource("CapsuleShape2D_1jxqw")
-
-[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-4, -33)
+shape = SubResource("RectangleShape2D_t7qi1")
