@@ -13,10 +13,10 @@ var is_attacking: bool = false # A flag to prevent movement during attack
 
 # Use the _input function for instantaneous press detection (like attacking)
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("attack") and is_on_floor() and not is_attacking:
+	if event.is_action_pressed("Attack") and is_on_floor() and not is_attacking:
 		is_attacking = true
 		velocity.x = 0 # Stop moving immediately when attacking on the ground
-		animated_sprite.play("attack")
+		animated_sprite.play("Attack")
 		# You'll use an animation signal later to disable the attack flag
 
 func _physics_process(delta: float) -> void:
