@@ -8,6 +8,7 @@ var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_area: Area2D = $AttackArea # Get a reference to the Area2D
+@export var drop_margin: float = 5.0 # How far down to move instantly
 
 var is_attacking: bool = false # A flag to prevent movement during attack
 
@@ -20,6 +21,15 @@ func _input(event: InputEvent) -> void:
 		# You'll use an animation signal later to disable the attack flag
 
 func _physics_process(delta: float) -> void:
+	   # Handle Drop Down Input
+	if Input.is_action_just_pressed("drop_down") and is_on_floor():
+		# If the player presses 'down' while on the floor,
+		# temporarily disable collision with the floor by moving them down slightly
+		global_position.y += drop_margin
+		# It's also good practice to make sure they can start falling immediately
+		velocity.y = 1.0 # Give a slight downward push
+	
+	
 	if is_attacking:
 		move_and_slide()
 		return
