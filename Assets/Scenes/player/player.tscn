@@ -295,7 +295,7 @@ animations = [{
 size = Vector2(20, 66)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_im2xp"]
-size = Vector2(18, 14)
+size = Vector2(20, 16)
 
 [node name="Player" type="CharacterBody2D"]
 safe_margin = 2.045
@@ -305,7 +305,9 @@ speed = 250.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -64)
 sprite_frames = SubResource("SpriteFrames_2hs0m")
-animation = &"Idle"
+animation = &"Attack"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, -33)
