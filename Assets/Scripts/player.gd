@@ -20,6 +20,10 @@ func _input(event: InputEvent) -> void:
 		# You'll use an animation signal later to disable the attack flag
 
 func _physics_process(delta: float) -> void:
+	if is_attacking:
+		move_and_slide()
+		return
+	
 	# Apply gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
