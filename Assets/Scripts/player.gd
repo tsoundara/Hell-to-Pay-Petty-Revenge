@@ -2,73 +2,64 @@ extends CharacterBody2D
 
 @export var speed: float = 300.0
 @export var jump_velocity: float = -400.0
-
-# Get the gravity from project settings (usually 980)
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var attack_area: Area2D = $AttackArea # Get a reference to the Area2D
-@export var drop_margin: float = 5.0 # How far down to move instantly
+@onready var attack_area: Area2D = $AttackArea
 
-var is_attacking: bool = false # A flag to prevent movement during attack
+var is_attacking: bool = false
+var direction: float = 0.0 # Store the current input direction
 
-# Use the _input function for instantaneous press detection (like attacking)
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Attack") and is_on_floor() and not is_attacking:
+	# Only allow the attack input if the animation is not currently playing
+	if event.is_action_pressed("Attack") and not is_attacking:
 		is_attacking = true
-		velocity.x = 0 # Stop moving immediately when attacking on the ground
 		animated_sprite.play("Attack")
-		# You'll use an animation signal later to disable the attack flag
+		# Activate the hitbox when the animation starts
+		attack_area.monitoring = true 
+
 
 func _physics_process(delta: float) -> void:
-	   # Handle Drop Down Input
-	if Input.is_action_just_pressed("drop_down") and is_on_floor():
-		# If the player presses 'down' while on the floor,
-		# temporarily disable collision with the floor by moving them down slightly
-		global_position.y += drop_margin
-		# It's also good practice to make sure they can start falling immediately
-		velocity.y = 1.0 # Give a slight downward push
-	
-	
-	if is_attacking:
-		move_and_slide()
-		return
-	
 	# Apply gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
-
 
 	# Handle Jump Input
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		velocity.y = jump_velocity
 
 	# Get horizontal input direction
-	var direction: float = Input.get_axis("ui_left", "ui_right")
+	direction = Input.get_axis("ui_left", "ui_right")
 
-	# Handle horizontal movement and animation
+	# Handle horizontal movement
 	if direction != 0:
 		velocity.x = direction * speed
-		# Flip the sprite to face the movement direction
+		# Flip the sprite visually based on movement direction
 		animated_sprite.flip_h = direction < 0
-		if is_on_floor():
-			animated_sprite.play("Run")
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed) # Decelerate when no input
-		if is_on_floor():
-			animated_sprite.play("Idle")
+		# Decelerate when no input is pressed
+		velocity.x = move_toward(velocity.x, 0, speed)
 
-	# Handle vertical animation (jump/fall)
-	if not is_on_floor():
-		if velocity.y < 0:
-			animated_sprite.play("jump")
+	# Handle Animation State Logic
+	if not is_attacking:
+		if not is_on_floor():
+			# Vertical animations take priority over run/idle
+			if velocity.y < 0:
+				animated_sprite.play("jump")
+			else:
+				animated_sprite.play("fall")
+		elif direction != 0:
+			animated_sprite.play("Run")
 		else:
-			animated_sprite.play("fall")
-
-	# Move the character
+			animated_sprite.play("Idle")
+	
+	# Move the character using physics
 	move_and_slide()
 
-
+# This function is called when the "attack" animation finishes playing
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite.animation == "Attack":
 		is_attacking = false
+		# Deactivate the hitbox immediately after the animation finishes
+		attack_area.monitoring = false
+		# The main _physics_process loop will immediately switch to run/idle/jump animation next frame
