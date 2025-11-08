@@ -1008,3 +1008,11 @@ texture = ExtResource("107_m5u40")
 
 [node name="Enemy_1" parent="." instance=ExtResource("108_g6l5g")]
 position = Vector2(371, 451)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+offset_left = 607.0
+offset_top = 678.0
+offset_right = 808.0
+offset_bottom = 878.0
+color = Color(0.06666667, 0.050980393, 0.14901961, 1)
