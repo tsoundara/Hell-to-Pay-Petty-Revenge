@@ -295,9 +295,9 @@ animations = [{
 size = Vector2(20, 66)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_im2xp"]
-size = Vector2(20, 16)
+size = Vector2(81, 24)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 safe_margin = 2.045
 script = ExtResource("1_im2xp")
 speed = 250.0
@@ -305,9 +305,7 @@ speed = 250.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -64)
 sprite_frames = SubResource("SpriteFrames_2hs0m")
-animation = &"Attack"
-frame = 3
-frame_progress = 1.0
+animation = &"Hurt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, -33)
@@ -316,7 +314,7 @@ shape = SubResource("RectangleShape2D_t7qi1")
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(26, -48)
+position = Vector2(-4.5, -48)
 shape = SubResource("RectangleShape2D_im2xp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -324,3 +322,4 @@ position = Vector2(0, -64.12)
 scale = Vector2(3.5199995, 1)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
