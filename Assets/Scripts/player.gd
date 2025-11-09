@@ -3,6 +3,9 @@ extends CharacterBody2D
 @export var speed: float = 300.0
 @export var jump_velocity: float = -400.0
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
+@export var max_health: int = 5
+var current_health: int
+
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_area: Area2D = $AttackArea
@@ -18,6 +21,18 @@ func _input(event: InputEvent) -> void:
 		# Activate the hitbox when the animation starts
 		attack_area.monitoring = true 
 
+func _ready() -> void:
+	current_health = max_health
+
+func take_damage(amount: int, knockback_force: Vector2) -> void:
+	current_health -= amount
+	# Apply knockback
+	velocity = knockback_force
+	# Optional: flash red or play hurt animation
+	flash_red()
+
+	if current_health <= 0:
+		die()
 
 func _physics_process(delta: float) -> void:
 	# Apply gravity
@@ -55,6 +70,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Move the character using physics
 	move_and_slide()
+	velocity.x = move_toward(velocity.x, 0, speed * delta * 2)
 
 # This function is called when the "attack" animation finishes playing
 func _on_animated_sprite_2d_animation_finished() -> void:
@@ -63,3 +79,21 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		# Deactivate the hitbox immediately after the animation finishes
 		attack_area.monitoring = false
 		# The main _physics_process loop will immediately switch to run/idle/jump animation next frame
+		
+func _on_attack_area_body_entered(body: Node) -> void:
+	if not is_attacking:
+		return  # Only register hits during an attack
+	
+	if body.is_in_group("enemies"):
+		body.die()  # Call the enemy's die() function
+
+func flash_red() -> void:
+	animated_sprite.modulate = Color(1, 0.3, 0.3)
+	await get_tree().create_timer(0.1).timeout
+	animated_sprite.modulate = Color(1, 1, 1)
+
+func die() -> void:
+	animated_sprite.play("Dead")
+	set_physics_process(false)
+	await animated_sprite.animation_finished
+	queue_free()
