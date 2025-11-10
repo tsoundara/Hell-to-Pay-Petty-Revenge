@@ -1,4 +1,4 @@
-[gd_scene load_steps=220 format=4 uid="uid://dhro26orw11l7"]
+[gd_scene load_steps=221 format=4 uid="uid://dhro26orw11l7"]
 
 [ext_resource type="Texture2D" uid="uid://da6jcageyp4ah" path="res://Assets/Sprites/Tiles/city/Tile_01.png" id="1_cno1q"]
 [ext_resource type="Script" uid="uid://c5x5p1hlm7p1k" path="res://Assets/Scripts/main.gd" id="1_i1jbo"]
@@ -101,17 +101,18 @@
 [ext_resource type="Texture2D" uid="uid://b5ktxtv2rostr" path="res://Assets/Sprites/Tiles/city/Tile_97.png" id="98_6h813"]
 [ext_resource type="Texture2D" uid="uid://cfx4ccp3rf1ab" path="res://Assets/Sprites/Tiles/city/Tile_98.png" id="99_lbq4v"]
 [ext_resource type="Texture2D" uid="uid://dt07e66fm7qa4" path="res://Assets/Sprites/Tiles/city/Tile_99.png" id="100_i66qe"]
-[ext_resource type="PackedScene" uid="uid://dswyscray02pf" path="res://Assets/Scenes/player/player.tscn" id="101_ud1ya"]
+[ext_resource type="PackedScene" uid="uid://dswyscray02pf" path="res://Assets/Scenes/player.tscn" id="101_ud1ya"]
 [ext_resource type="Texture2D" uid="uid://bfbg1spnirs6" path="res://Assets/Sprites/Backgrounds/city 1/1.png" id="102_ha1ao"]
 [ext_resource type="Texture2D" uid="uid://c4d3p511rqrb3" path="res://Assets/Sprites/Backgrounds/city 1/2.png" id="103_16w7v"]
 [ext_resource type="Texture2D" uid="uid://cfjxvxdsswf4o" path="res://Assets/Sprites/Backgrounds/city 1/3.png" id="104_0q7j2"]
 [ext_resource type="Texture2D" uid="uid://dy2mb34js3kdi" path="res://Assets/Sprites/Backgrounds/city 1/4.png" id="105_bhwbj"]
 [ext_resource type="Texture2D" uid="uid://5cspjgr5phsy" path="res://Assets/Sprites/objects/Benches/2.png" id="106_v7huf"]
-[ext_resource type="PackedScene" uid="uid://bw28p5nhmkosm" path="res://Assets/Scenes/npc/enemy.tscn" id="108_g6l5g"]
+[ext_resource type="PackedScene" uid="uid://bw28p5nhmkosm" path="res://Assets/Scenes/enemy.tscn" id="108_g6l5g"]
 [ext_resource type="Texture2D" uid="uid://b7ttr88cnmdn0" path="res://Assets/Sprites/animated_objects/Fountain.png" id="109_j5ivo"]
 [ext_resource type="Texture2D" uid="uid://dl47la4bas32v" path="res://Assets/Sprites/objects/Fence/1.png" id="110_22fik"]
 [ext_resource type="Texture2D" uid="uid://d2mfjqu3xb015" path="res://Assets/Sprites/objects/Fence/5.png" id="111_fnq0y"]
 [ext_resource type="PackedScene" uid="uid://b1na482f6cji2" path="res://Assets/Scenes/PauseMenu.tscn" id="112_fnq0y"]
+[ext_resource type="PackedScene" uid="uid://cpgom8htueta" path="res://Assets/Scenes/game_over_screen.tscn" id="113_gsgqb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_22er6"]
 texture = ExtResource("1_cno1q")
@@ -990,6 +991,8 @@ tile_set = SubResource("TileSet_elf4b")
 [node name="Player" parent="." instance=ExtResource("101_ud1ya")]
 z_index = 1
 position = Vector2(49, 545)
+max_health = 3
+game_over_screen_scene = ExtResource("113_gsgqb")
 
 [node name="Enemy_1" parent="." instance=ExtResource("108_g6l5g")]
 position = Vector2(331, 561)

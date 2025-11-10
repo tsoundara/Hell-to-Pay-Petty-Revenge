@@ -6,6 +6,7 @@ var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var max_health: int = 5
 var current_health: int
 @export var respawn_point_position: Vector2 = Vector2.ZERO # Default to (0, 0)
+@export var game_over_screen_scene: PackedScene 
 
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -96,6 +97,14 @@ func flash_red() -> void:
 func die() -> void:
 	animated_sprite.play("Dead")
 	set_physics_process(false)
+	get_tree().paused = true
+	if game_over_screen_scene:
+		var game_over_screen_instance = game_over_screen_scene.instantiate()
+		# Add the screen to the scene tree
+		get_tree().root.add_child(game_over_screen_instance)
+	else:
+		# Fallback if the scene wasn't set in the editor
+		print("GAME OVER. Missing Game Over Scene Path.")
 	await animated_sprite.animation_finished
 	queue_free()
 
