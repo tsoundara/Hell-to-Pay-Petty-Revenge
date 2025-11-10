@@ -38,17 +38,17 @@ func _physics_process(delta: float) -> void:
 
 func die() -> void:
 	if is_dead:
-		return  # Prevent double-death calls
+		return
 	is_dead = true
-	# Flash red for feedback
 	flash_red()
-	# Slight delay before death animation starts
 	await get_tree().create_timer(0.1).timeout
-	# Stop movement & play death animation
 	velocity = Vector2.ZERO
 	animated_sprite.play("Death")
-	# Disable collision to prevent further hits
-	$CollisionShape2D.set_deferred("disabled",true)
+	$CollisionShape2D.set_deferred("disabled", true)
+	# ✅ Add points to player
+	if player and player.has_method("add_score"):
+		player.add_score(100)
+	await animated_sprite.animation_finished
 	queue_free()
 
 func flash_red() -> void:

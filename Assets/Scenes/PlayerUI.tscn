@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7pim77m3rnfd"]
+
+[ext_resource type="Script" uid="uid://cxum3ey4nnyhl" path="res://Assets/Scripts/PlayerUI.gd" id="1_p2cie"]
+
+[node name="PlayerUI" type="CanvasLayer" groups=["ui"]]
+script = ExtResource("1_p2cie")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HealthLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Health:"
+horizontal_alignment = 2
+
+[node name="HealthValue" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Score: "
+horizontal_alignment = 2
+
+[node name="ScoreValue" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
