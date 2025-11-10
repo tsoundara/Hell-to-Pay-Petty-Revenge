@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxqkg57lf77mt"]
+
+[ext_resource type="Script" uid="uid://ckce5l7wvlh8w" path="res://Assets/Scenes/dialog/dialog_player.gd" id="1_liuve"]
+[ext_resource type="Texture2D" uid="uid://bw8s3pn2dg8lk" path="res://Assets/Sprites/UI/DialogBackground.png" id="2_21scb"]
+
+[node name="DialogPlayer" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_liuve")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_21scb")
+
+[node name="TextLabel" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 578.0
+offset_right = 1142.0
+offset_bottom = 638.0
+autowrap_mode = 3
+text_overrun_behavior = 6

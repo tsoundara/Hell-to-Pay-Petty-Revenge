@@ -1,0 +1,18 @@
+{
+	"tv_dialog": [
+		"On the tv, the newly promoted police commissioner is giving a speech.",
+		"Commissioner: ___________________________________",
+        "That's the stupid guy who gave me my parking ticket."
+	],
+	"fees_letter_dialog": [
+		"It's a letter from the city.",
+		"'Dear citizen,",
+		"We regret to inform you that you have an overwhelming amount of outstanding fines for an unpaid parking ticket.",
+		"Payment is expected immediately.",
+		"Failure to pay may result in additional fees, a visit from our most persuasive law enforcement officers, public humiliation, or the immediate closure of your home.",
+		"Thank you for your forced cooperation.",
+        "Sincerely, your ruthlessly bureaucratic city'"
+	]
+
+
+}
