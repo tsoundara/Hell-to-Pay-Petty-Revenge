@@ -1,4 +1,4 @@
-[gd_scene load_steps=233 format=4 uid="uid://dhro26orw11l7"]
+[gd_scene load_steps=240 format=4 uid="uid://dhro26orw11l7"]
 
 [ext_resource type="Texture2D" uid="uid://da6jcageyp4ah" path="res://Assets/Sprites/Tiles/city/Tile_01.png" id="1_cno1q"]
 [ext_resource type="Script" uid="uid://c5x5p1hlm7p1k" path="res://Assets/Scripts/main.gd" id="1_i1jbo"]
@@ -125,6 +125,13 @@
 [ext_resource type="PackedScene" uid="uid://ctad5pkruuw7t" path="res://Assets/Scenes/WinCollectable.tscn" id="121_33kdi"]
 [ext_resource type="Texture2D" uid="uid://n0rlsdo3kdbt" path="res://Assets/Sprites/UI/move.png" id="121_spnn0"]
 [ext_resource type="Texture2D" uid="uid://daj5ul5gewbpc" path="res://Assets/Sprites/UI/trophy.png" id="122_8uy2b"]
+[ext_resource type="Texture2D" uid="uid://bswja7el5k4og" path="res://Assets/Sprites/objects/Other/Ramp2.png" id="123_g3r3s"]
+[ext_resource type="Texture2D" uid="uid://cc458afi8xndj" path="res://Assets/Sprites/objects/Other/Tree4.png" id="124_khsip"]
+[ext_resource type="Texture2D" uid="uid://csna8bphedgao" path="res://Assets/Sprites/objects/Other/Tree3.png" id="125_mgut0"]
+[ext_resource type="Texture2D" uid="uid://bnv23erylhic0" path="res://Assets/Sprites/objects/Fence/6.png" id="126_87mwf"]
+[ext_resource type="Texture2D" uid="uid://7iktygoda5o6" path="res://Assets/Sprites/objects/Bushes/13.png" id="127_87mwf"]
+[ext_resource type="Texture2D" uid="uid://di3dvv2ciaqv0" path="res://Assets/Sprites/objects/Bushes/18.png" id="128_kbotc"]
+[ext_resource type="Texture2D" uid="uid://dsrdqhybyauc6" path="res://Assets/Sprites/objects/Other/Box.png" id="129_8wchx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_22er6"]
 texture = ExtResource("1_cno1q")
@@ -1138,6 +1145,11 @@ position = Vector2(941, 460)
 scale = Vector2(1.4123874, 1.5589772)
 texture = ExtResource("115_7onjj")
 
+[node name="Random Objects17" type="Sprite2D" parent="Map Objects"]
+position = Vector2(1131, 460)
+scale = Vector2(1.4123874, 1.5589772)
+texture = ExtResource("115_7onjj")
+
 [node name="Random Objects5" type="Sprite2D" parent="Map Objects"]
 position = Vector2(1308, 555)
 scale = Vector2(1.4123874, 1.5589772)
@@ -1171,6 +1183,96 @@ z_index = 1
 position = Vector2(3167, 637)
 scale = Vector2(0.19656673, 0.21696815)
 texture = ExtResource("122_8uy2b")
+
+[node name="Random Objects11" type="Sprite2D" parent="Map Objects"]
+position = Vector2(1845.9999, 523)
+scale = Vector2(1.4123874, 1.5589772)
+texture = ExtResource("123_g3r3s")
+
+[node name="Random Objects12" type="Sprite2D" parent="Map Objects"]
+position = Vector2(2209, 412.99997)
+scale = Vector2(1.4123874, 1.5589772)
+texture = ExtResource("124_khsip")
+
+[node name="Random Objects13" type="Sprite2D" parent="Map Objects"]
+position = Vector2(1091, 464)
+scale = Vector2(1.4123874, 1.5589772)
+texture = ExtResource("115_7onjj")
+
+[node name="Random Objects16" type="Sprite2D" parent="Map Objects"]
+position = Vector2(1253, 460)
+scale = Vector2(1.4123874, 1.5589772)
+texture = ExtResource("115_7onjj")
+
+[node name="Random Objects14" type="Sprite2D" parent="Map Objects"]
+position = Vector2(1005.99994, 413.00003)
+scale = Vector2(1.4123874, 1.5589772)
+texture = ExtResource("125_mgut0")
+
+[node name="Random Objects15" type="Sprite2D" parent="Map Objects"]
+position = Vector2(1180, 412.00003)
+scale = Vector2(1.4123874, 1.5589772)
+texture = ExtResource("125_mgut0")
+
+[node name="Random Objects18" type="Sprite2D" parent="Map Objects"]
+position = Vector2(2417, 511)
+scale = Vector2(1.4123874, 1.5589772)
+texture = ExtResource("126_87mwf")
+
+[node name="Random Objects19" type="Sprite2D" parent="Map Objects"]
+position = Vector2(2484, 511)
+scale = Vector2(1.4123874, 1.5589772)
+texture = ExtResource("126_87mwf")
+
+[node name="Random Objects20" type="Sprite2D" parent="Map Objects"]
+position = Vector2(2552, 511)
+scale = Vector2(1.4123874, 1.5589772)
+texture = ExtResource("126_87mwf")
+
+[node name="Random Objects21" type="Sprite2D" parent="Map Objects"]
+position = Vector2(2620, 511)
+scale = Vector2(1.4123874, 1.5589772)
+texture = ExtResource("126_87mwf")
+
+[node name="Random Objects22" type="Sprite2D" parent="Map Objects"]
+position = Vector2(2907, 547)
+scale = Vector2(1.4123874, 1.5589772)
+texture = ExtResource("127_87mwf")
+
+[node name="Random Objects23" type="Sprite2D" parent="Map Objects"]
+position = Vector2(2946, 543)
+scale = Vector2(1.4123874, 1.5589772)
+texture = ExtResource("128_kbotc")
+
+[node name="Random Objects24" type="Sprite2D" parent="Map Objects"]
+position = Vector2(3047, 541)
+scale = Vector2(1.4123874, 1.5589772)
+texture = ExtResource("128_kbotc")
+
+[node name="Random Objects25" type="Sprite2D" parent="Map Objects"]
+position = Vector2(1065, 542)
+scale = Vector2(1.4123874, 1.5589772)
+texture = ExtResource("128_kbotc")
+
+[node name="Random Objects26" type="Sprite2D" parent="Map Objects"]
+position = Vector2(1217, 547)
+scale = Vector2(1.4123874, 1.5589772)
+texture = ExtResource("127_87mwf")
+
+[node name="Random Objects27" type="Sprite2D" parent="Map Objects"]
+position = Vector2(2826.5981, 669.4872)
+scale = Vector2(1.4123874, 1.5589772)
+texture = ExtResource("129_8wchx")
+
+[node name="Random Objects29" type="Sprite2D" parent="Map Objects"]
+position = Vector2(2804.5981, 633.4872)
+scale = Vector2(1.4123874, 1.5589772)
+texture = ExtResource("129_8wchx")
+
+[node name="Random Objects28" type="Sprite2D" parent="Map Objects"]
+position = Vector2(2781.5981, 669.4872)
+scale = Vector2(1.4123874, 1.5589772)
+texture = ExtResource("129_8wchx")
 
 [node name="Fences" type="Sprite2D" parent="Map Objects"]
 position = Vector2(109, 511)
