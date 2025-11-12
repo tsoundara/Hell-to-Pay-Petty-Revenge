@@ -1,7 +1,7 @@
 [gd_scene load_steps=253 format=4 uid="uid://dhro26orw11l7"]
 
 [ext_resource type="Texture2D" uid="uid://da6jcageyp4ah" path="res://Assets/Sprites/Tiles/city/Tile_01.png" id="1_cno1q"]
-[ext_resource type="Script" path="res://Assets/Scripts/main.gd" id="1_i1jbo"]
+[ext_resource type="Script" uid="uid://c5x5p1hlm7p1k" path="res://Assets/Scripts/main.gd" id="1_i1jbo"]
 [ext_resource type="Texture2D" uid="uid://58vnpajft21n" path="res://Assets/Sprites/Tiles/city/Tile_10.png" id="2_g6l5g"]
 [ext_resource type="Texture2D" uid="uid://c7x8xljynh7vp" path="res://Assets/Sprites/Tiles/city/Tile_100.png" id="3_j5ivo"]
 [ext_resource type="Texture2D" uid="uid://c5u5xlwigmfmo" path="res://Assets/Sprites/Tiles/city/Tile_11.png" id="4_i1jbo"]
@@ -1080,7 +1080,6 @@ tile_set = SubResource("TileSet_elf4b")
 z_index = 1
 position = Vector2(49, 559)
 jump_velocity = -500.0
-max_health = 4
 game_over_screen_scene = ExtResource("113_gsgqb")
 win_screen_scene = ExtResource("104_7onjj")
 
@@ -1116,6 +1115,14 @@ offset_top = 618.0
 offset_right = 5895.0
 offset_bottom = 1374.0
 color = Color(0.06666667, 0.050980393, 0.14901961, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ParallaxBackground"]
+z_index = 1
+offset_left = -894.0
+offset_top = -960.0
+offset_right = 4385.0
+offset_bottom = -204.0
+color = Color(0.12156863, 0.32156864, 0.7176471, 1)
 
 [node name="Parallax2D" type="Parallax2D" parent="ParallaxBackground"]
 scale = Vector2(0.82, 0.82)

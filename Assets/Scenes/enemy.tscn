@@ -286,11 +286,12 @@ size = Vector2(40, 65.25)
 radius = 137.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r55eg"]
-size = Vector2(80.5, 34)
+size = Vector2(61.25, 34)
 
 [node name="Enemy_1" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_rwlbr")
 attack_cooldown = 0.5
+base_attack_offset_x = 14.835
 
 [node name="EnemyAnimatedSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -64)
@@ -312,7 +313,7 @@ shape = SubResource("CircleShape2D_rwlbr")
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(-1, -42.000004)
+position = Vector2(10, -42.999996)
 scale = Vector2(1, 0.8063409)
 shape = SubResource("RectangleShape2D_r55eg")
 

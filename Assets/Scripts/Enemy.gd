@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var run_speed: float = 120.0
 @export var patrol_distance: float = 100.0
 @export var attack_cooldown: float = 1.0
+@export var base_attack_offset_x: float = 15.0
 
 @onready var animated_sprite: AnimatedSprite2D = $EnemyAnimatedSprite
 @onready var detection_area: Area2D = $DetectionArea
@@ -23,6 +24,8 @@ var is_returning_home: bool = false
 func _ready() -> void:
 	start_position = global_position
 	animated_sprite.play("Idle")
+	# Ensure attack area is initially positioned correctly
+	attack_area.position.x = base_attack_offset_x * direction
 
 func _physics_process(delta: float) -> void:
 	if is_dead:
@@ -57,46 +60,27 @@ func flash_red() -> void:
 	animated_sprite.modulate = Color(1, 1, 1)      # Back to normal
 
 
-#func patrol(_delta: float) -> void:
-	#if is_dead or is_chasing or is_attacking:
-		#return
-	#animated_sprite.play("Walk")
-	#velocity.x = direction * walk_speed
-	## 1. Flip the RayCasts to match the movement direction
-	#var ray_scale = direction # 1 or -1
-	#ground_check_ray.scale.x = ray_scale
-	#wall_check_ray.scale.x = ray_scale
-	## 2. Check for danger
-	## is_colliding() returns true if a collider is hit
-	#var is_cliff_ahead = not ground_check_ray.is_colliding()
-	#var is_wall_ahead = wall_check_ray.is_colliding()
-	## 3. Turn around if a cliff or wall is detected
-	#if is_cliff_ahead or is_wall_ahead:
-		#direction *= -1
-	#move_and_slide()
-	## Flip sprite visually (Existing code)
-	#animated_sprite.flip_h = direction < 0
-	## Turn around at patrol boundaries (Existing code, keep this)
-	#if abs(global_position.x - start_position.x) > patrol_distance:
-		#direction *= -1
-
 func patrol(_delta: float) -> void:
 	animated_sprite.play("Walk")
 	# Determine the speed based on state
 	var current_speed = walk_speed
 	if is_returning_home:
 		# Run back home fast, ignore patrol boundaries
-		current_speed = run_speed 
+		current_speed = run_speed
 		# Check if enemy is close enough to home to start regular patrol
 		if abs(global_position.x - start_position.x) < 5.0: # Check within 5 units
 			is_returning_home = false
 			# Reset direction for standard patrol (e.g., face right)
-			direction = 1 
+			direction = 1
 	# --- Movement ---
 	velocity.x = direction * current_speed
 	move_and_slide()
+	
 	# Flip sprite visually
 	animated_sprite.flip_h = direction < 0
+	# 🚨 FIX: Flip the Attack Area position 🚨
+	attack_area.position.x = base_attack_offset_x * direction
+	
 	# Patrol boundary check only when NOT returning home
 	if not is_returning_home:
 		if abs(global_position.x - start_position.x) > patrol_distance:
@@ -109,6 +93,9 @@ func chase_player(_delta: float) -> void:
 	var distance = player.global_position.x - global_position.x
 	direction = sign(distance)
 	animated_sprite.flip_h = direction < 0
+	# 🚨 FIX: Flip the Attack Area position 🚨
+	attack_area.position.x = base_attack_offset_x * direction
+	
 	var ray_scale = direction
 	ground_check_ray.scale.x = ray_scale
 	wall_check_ray.scale.x = ray_scale
@@ -131,7 +118,6 @@ func chase_player(_delta: float) -> void:
 	animated_sprite.play("Run")
 	velocity.x = direction * run_speed
 	move_and_slide()
-	
 
 
 func attack() -> void:
@@ -163,6 +149,8 @@ func _on_detection_area_body_exited(body: Node) -> void:
 		var distance_to_start = start_position.x - global_position.x
 		direction = sign(distance_to_start)
 		animated_sprite.flip_h = direction < 0
+		# 🚨 FIX: Update Attack Area when exiting chase 🚨
+		attack_area.position.x = base_attack_offset_x * direction
 		velocity.x = 0
 
 
