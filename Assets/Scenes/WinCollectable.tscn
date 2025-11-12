@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctad5pkruuw7t"]
+
+[ext_resource type="Script" uid="uid://ccvee5obpen0n" path="res://Assets/Scripts/WinCollectable.gd" id="1_f7rqu"]
+[ext_resource type="Texture2D" uid="uid://m7328n2aa85b" path="res://Assets/Sprites/objects/Other/Garbage_Can2.png" id="2_bmawj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4boi"]
+size = Vector2(102, 94)
+
+[node name="WinCollectable" type="Area2D" groups=["win_condition"]]
+scale = Vector2(0.45244732, 0.45244732)
+script = ExtResource("1_f7rqu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.9073486e-06, -1.9073486e-06)
+scale = Vector2(6.666667, 6.7692313)
+texture = ExtResource("2_bmawj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_b4boi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

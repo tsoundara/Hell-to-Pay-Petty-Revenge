@@ -183,7 +183,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_q13i1")
 }],
-"loop": true,
+"loop": false,
 "name": &"Dead",
 "speed": 8.0
 }, {
@@ -260,7 +260,7 @@ animations = [{
 "speed": 8.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 8.0,
 "texture": SubResource("AtlasTexture_im2xp")
 }, {
 "duration": 1.0,
@@ -271,7 +271,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"fall",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -295,7 +295,7 @@ animations = [{
 size = Vector2(20, 66)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_im2xp"]
-size = Vector2(81, 24)
+size = Vector2(71, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v73hl"]
 size = Vector2(36, 66)
@@ -308,7 +308,7 @@ speed = 250.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -64)
 sprite_frames = SubResource("SpriteFrames_2hs0m")
-animation = &"Hurt"
+animation = &"fall"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, -33)
@@ -317,7 +317,7 @@ shape = SubResource("RectangleShape2D_t7qi1")
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(-4.5, -48)
+position = Vector2(0.5, -48)
 shape = SubResource("RectangleShape2D_im2xp")
 
 [node name="Camera2D" type="Camera2D" parent="."]

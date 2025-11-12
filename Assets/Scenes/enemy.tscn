@@ -286,7 +286,7 @@ size = Vector2(40, 65.25)
 radius = 137.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r55eg"]
-size = Vector2(90.5, 74)
+size = Vector2(80.5, 34)
 
 [node name="Enemy_1" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_rwlbr")
@@ -295,7 +295,9 @@ attack_cooldown = 0.5
 [node name="EnemyAnimatedSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -64)
 sprite_frames = SubResource("SpriteFrames_7xaro")
-animation = &"Attack1"
+animation = &"Attack2"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -33.375)
@@ -310,8 +312,17 @@ shape = SubResource("CircleShape2D_rwlbr")
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(-2.25, -38)
+position = Vector2(-1, -42.000004)
+scale = Vector2(1, 0.8063409)
 shape = SubResource("RectangleShape2D_r55eg")
+
+[node name="GroundCheckRayCast" type="RayCast2D" parent="."]
+position = Vector2(14, -1)
+target_position = Vector2(0, 20)
+
+[node name="WallCheckRayCast" type="RayCast2D" parent="."]
+position = Vector2(0, -37)
+target_position = Vector2(30, 0)
 
 [connection signal="animation_finished" from="EnemyAnimatedSprite" to="." method="_on_enemy_animated_sprite_animation_finished"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

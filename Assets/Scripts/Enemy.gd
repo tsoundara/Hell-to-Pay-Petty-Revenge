@@ -8,6 +8,8 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $EnemyAnimatedSprite
 @onready var detection_area: Area2D = $DetectionArea
 @onready var attack_area: Area2D = $AttackArea
+@onready var ground_check_ray: RayCast2D = $GroundCheckRayCast
+@onready var wall_check_ray: RayCast2D = $WallCheckRayCast
 
 var start_position: Vector2
 var direction: int = 1
@@ -16,6 +18,7 @@ var player: Node2D = null
 var is_attacking: bool = false
 var can_attack: bool = true
 var is_dead: bool = false
+var is_returning_home: bool = false
 
 func _ready() -> void:
 	start_position = global_position
@@ -35,62 +38,95 @@ func _physics_process(delta: float) -> void:
 
 func die() -> void:
 	if is_dead:
-		return  # Prevent double-death calls
+		return
 	is_dead = true
-	
-	# Flash red for feedback
 	flash_red()
-	# Slight delay before death animation starts
 	await get_tree().create_timer(0.1).timeout
-	
-	# Stop movement & play death animation
 	velocity = Vector2.ZERO
 	animated_sprite.play("Death")
-	
-	# Disable collision to prevent further hits
-	$CollisionShape2D.set_deferred("disabled",true)
-	
-	# Queue_free after animation ends
-	animated_sprite.animation_finished.connect(_on_animation_finished)
-
-func _on_animation_finished() -> void:
-	if animated_sprite.animation == "Death":
-		queue_free()
+	$CollisionShape2D.set_deferred("disabled", true)
+	# ✅ Add points to player
+	if player and player.has_method("add_score"):
+		player.add_score(100)
+	await animated_sprite.animation_finished
+	queue_free()
 
 func flash_red() -> void:
 	animated_sprite.modulate = Color(1, 0.2, 0.2)  # Tint red
 	await get_tree().create_timer(0.1).timeout     # Flash duration
 	animated_sprite.modulate = Color(1, 1, 1)      # Back to normal
 
+
+#func patrol(_delta: float) -> void:
+	#if is_dead or is_chasing or is_attacking:
+		#return
+	#animated_sprite.play("Walk")
+	#velocity.x = direction * walk_speed
+	## 1. Flip the RayCasts to match the movement direction
+	#var ray_scale = direction # 1 or -1
+	#ground_check_ray.scale.x = ray_scale
+	#wall_check_ray.scale.x = ray_scale
+	## 2. Check for danger
+	## is_colliding() returns true if a collider is hit
+	#var is_cliff_ahead = not ground_check_ray.is_colliding()
+	#var is_wall_ahead = wall_check_ray.is_colliding()
+	## 3. Turn around if a cliff or wall is detected
+	#if is_cliff_ahead or is_wall_ahead:
+		#direction *= -1
+	#move_and_slide()
+	## Flip sprite visually (Existing code)
+	#animated_sprite.flip_h = direction < 0
+	## Turn around at patrol boundaries (Existing code, keep this)
+	#if abs(global_position.x - start_position.x) > patrol_distance:
+		#direction *= -1
+
 func patrol(_delta: float) -> void:
 	animated_sprite.play("Walk")
-	velocity.x = direction * walk_speed
+	# Determine the speed based on state
+	var current_speed = walk_speed
+	if is_returning_home:
+		# Run back home fast, ignore patrol boundaries
+		current_speed = run_speed 
+		# Check if enemy is close enough to home to start regular patrol
+		if abs(global_position.x - start_position.x) < 5.0: # Check within 5 units
+			is_returning_home = false
+			# Reset direction for standard patrol (e.g., face right)
+			direction = 1 
+	# --- Movement ---
+	velocity.x = direction * current_speed
 	move_and_slide()
-
 	# Flip sprite visually
 	animated_sprite.flip_h = direction < 0
-
-
-	# Turn around at patrol boundaries
-	if abs(global_position.x - start_position.x) > patrol_distance:
-		direction *= -1
-
+	# Patrol boundary check only when NOT returning home
+	if not is_returning_home:
+		if abs(global_position.x - start_position.x) > patrol_distance:
+			direction *= -1
 
 
 func chase_player(_delta: float) -> void:
 	if not player:
 		return
-
 	var distance = player.global_position.x - global_position.x
 	direction = sign(distance)
 	animated_sprite.flip_h = direction < 0
-
-
-	# If close enough, try to attack
+	var ray_scale = direction
+	ground_check_ray.scale.x = ray_scale
+	wall_check_ray.scale.x = ray_scale
+	if not ground_check_ray.is_colliding():
+		animated_sprite.play("Idle")
+		velocity.x = 0
+		move_and_slide()
+		return # Stop if a cliff is detected
+	# If close enough, decide whether to attack or wait
 	if abs(distance) < 40.0:
-		attack()
-		return
-
+		if can_attack and not is_attacking:
+			# Start attack immediately
+			attack()
+		else:
+			animated_sprite.play("Idle")
+			velocity.x = 0
+			move_and_slide()
+		return # Prevents running while in attack range/wait state
 	# Otherwise, run toward player
 	animated_sprite.play("Run")
 	velocity.x = direction * run_speed
@@ -101,15 +137,12 @@ func chase_player(_delta: float) -> void:
 func attack() -> void:
 	if not can_attack or is_attacking:
 		return
-
 	is_attacking = true
 	can_attack = false
 	velocity.x = 0
-
 	# Pick a random attack animation
 	var attack_anim = "Attack1" if randi() % 2 == 0 else "Attack2"
 	animated_sprite.play(attack_anim)
-
 	# Re-enable attack after cooldown
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true
@@ -124,12 +157,20 @@ func _on_detection_area_body_exited(body: Node) -> void:
 	if body == player:
 		is_chasing = false
 		player = null
+		# Set the state flag
+		is_returning_home = true
+		# Stabilize direction: Face towards home
+		var distance_to_start = start_position.x - global_position.x
+		direction = sign(distance_to_start)
+		animated_sprite.flip_h = direction < 0
+		velocity.x = 0
 
 
 func _on_enemy_animated_sprite_animation_finished() -> void:
 	if animated_sprite.animation.begins_with("Attack"):
 		is_attacking = false
-		animated_sprite.play("Idle")
+	elif animated_sprite.animation == "Dead":
+		queue_free()
 
 func _on_attack_area_body_entered(body: Node) -> void:
 	if not is_attacking:
