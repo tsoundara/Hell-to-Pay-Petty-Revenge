@@ -1,18 +1,48 @@
 {
 	"tv_dialog": [
-		"On the tv, the newly promoted police commissioner is giving a speech.",
-		"Commissioner: ___________________________________",
-        "That's the stupid guy who gave me my parking ticket."
+		"On the tv, someone is giving a speech",
+		"Player: 'Wait, why does that grating, annoying voice sound so familiar?'",
+		"As you look at the screen, the cold flame of a long-held grudge is reignited within you.",
+		"Commissioner: 'My first act as commissioner? Parking tickets for everyone! YOU get a ticket, and YOU get a ticket! EVERYONE gets a ticket!",
+		"Commissioner: 'Now, your parking tickets will fund our police force, but that's not all. Crime rates will drop! Because starting today, we're reclassifying all crimes and giving you fines for EVERYTHING!",
+		"Commissioner: 'And some of you may call me corrupt, but you're wrong. I prefer to call it being entrepeneurial. HAHAHAHAHA!'",
+		"News Reporter: 'In other news, may god have mercy on our city. More at 11-'",
+		"Player: 'That commissioner... That's the ******* monster who gave me a parking ticket and caused me so much financial pain! How can a maniac like him be rewarded with a promotion, let alone get so much control of the city?'",
+		"Your simmering anger turns into a BOILING RAGE.",
+		"Player: 'That's it! You know what? I'm getting my **** ticket waived and I know just the way to convince him.'"
 	],
-	"fees_letter_dialog": [
-		"It's a letter from the city.",
-		"'Dear citizen,",
-		"We regret to inform you that you have an overwhelming amount of outstanding fines for an unpaid parking ticket.",
-		"Payment is expected immediately.",
-		"Failure to pay may result in additional fees, a visit from our most persuasive law enforcement officers, public humiliation, or the immediate closure of your home.",
+	"letters_dialog": [
+		"It's a stack of letters from the city. The newest waste of paper arrived early this morning stating the following:",
+		"Dear maggot,",
+		"We're delighted to inform you that you have an overwhelming amount of outstanding late fees for an unpaid parking ticket.",
+		"The final deadline for your full payment is by midnight tonight.",
+		"Failure to pay will result in public humiliation, additional fees, the immediate closure of your home, a visit from our most 'persuasive' law enforcement officers, and so much more!",
 		"Thank you for your forced cooperation.",
-        "Sincerely, your ruthlessly bureaucratic city'"
-	]
-
+        "Sincerely, your ruthlessly bureaucratic city"
+	],
+	"toilet_dialog": [
+		"Player: 'I should really clean this after the incident last night...'	*shudders*"
+	],
+	"shower_dialog": [
+		"Player: 'I took a shower this morning. I don't need to take another right now.'"
+	],
+	"couch_dialog": [
+		"Player: 'It looks super comfy, but I don't want to sit down right now.'"
+	],
+	"fridge_dialog": [
+		"You stare blankly towards your empty fridge. You haven't stocked it in 2 weeks... You should really stop ordering takeout."
+	],
+	"garbage_dialog": [
+		"Your garbage can reeks of crumpled takeout boxes and moldy leftovers."
+	],
+	"bed_dialog": [
+		"Your sheets lay haphazardly on the bed like a tornado stopped by. Rough night."
+	],
+	"door_locked": [
+		"Player: 'I don't want to leave right now.'"
+	],
+	"door_unlocked": [
+		"Player: 'I should leave. I have a commissioner to defeat and a ticket to waive.'"
+	],
 
 }

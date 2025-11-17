@@ -53,6 +53,7 @@ func finish():
 	in_progress = false
 	get_tree().paused = false
 	dialog_active = false
+	SignalBus.emit_signal("dialog_finished")
 
 func on_display_dialog(text_key):
 	print("Signal received:", text_key)
