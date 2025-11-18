@@ -27,12 +27,11 @@
 [ext_resource type="Texture2D" uid="uid://cbxqfmqe15r5o" path="res://Assets/Sprites/Tiles/city/Tile_84.png" id="23_3388g"]
 [ext_resource type="Texture2D" uid="uid://cut1aujbn7cfl" path="res://Assets/Sprites/Tiles/city/Tile_88.png" id="24_2v7c3"]
 [ext_resource type="Texture2D" uid="uid://b8e8r7tlyycpb" path="res://Assets/Sprites/Tiles/city/Tile_62.png" id="25_1qh2n"]
-[ext_resource type="Texture2D" uid="uid://cita62mwxp32j" path="res://Assets/Sprites/objects/chair.png" id="26_3388g"]
-[ext_resource type="Texture2D" uid="uid://c0a8dwe87atnm" path="res://Assets/Sprites/objects/tv.png" id="29_cnvau"]
+[ext_resource type="Texture2D" uid="uid://cita62mwxp32j" path="res://Assets/Sprites/objects/house/chair.png" id="26_3388g"]
+[ext_resource type="Texture2D" uid="uid://c0a8dwe87atnm" path="res://Assets/Sprites/objects/house/tv.png" id="29_cnvau"]
 [ext_resource type="Texture2D" uid="uid://cy7t335bhmhnj" path="res://Assets/Sprites/objects/paper_stack.png" id="29_to84q"]
-[ext_resource type="Texture2D" uid="uid://lwswtlyid8p6" path="res://Assets/Sprites/objects/tv stand.png" id="30_to84q"]
+[ext_resource type="Texture2D" uid="uid://lwswtlyid8p6" path="res://Assets/Sprites/objects/house/tv stand.png" id="30_to84q"]
 [ext_resource type="PackedScene" uid="uid://dxqkg57lf77mt" path="res://Assets/Scenes/dialog/dialog_player.tscn" id="31_cnvau"]
-[ext_resource type="PackedScene" uid="uid://b1na482f6cji2" path="res://Assets/Scenes/PauseMenu.tscn" id="32_to84q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xek8o"]
 texture = ExtResource("2_7iq2y")

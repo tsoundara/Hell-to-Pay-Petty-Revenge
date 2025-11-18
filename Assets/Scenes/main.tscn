@@ -1,7 +1,7 @@
 [gd_scene load_steps=346 format=4 uid="uid://dhro26orw11l7"]
 
 [ext_resource type="Texture2D" uid="uid://da6jcageyp4ah" path="res://Assets/Sprites/Tiles/city/Tile_01.png" id="1_cno1q"]
-[ext_resource type="Script" uid="uid://c5x5p1hlm7p1k" path="res://Assets/Scripts/main.gd" id="1_i1jbo"]
+[ext_resource type="Script" path="res://Assets/Scripts/main.gd" id="1_i1jbo"]
 [ext_resource type="Texture2D" uid="uid://58vnpajft21n" path="res://Assets/Sprites/Tiles/city/Tile_10.png" id="2_g6l5g"]
 [ext_resource type="Texture2D" uid="uid://swdqs4fpxtuj" path="res://Assets/Sprites/objects/Other/Props-01.png" id="2_k3ao8"]
 [ext_resource type="Texture2D" uid="uid://c7x8xljynh7vp" path="res://Assets/Sprites/Tiles/city/Tile_100.png" id="3_j5ivo"]
@@ -6532,6 +6532,11 @@ position = Vector2(5946.5, 418)
 scale = Vector2(1.09375, 1)
 texture = ExtResource("199_6a6lx")
 
+[node name="Tile133" type="Sprite2D" parent="City/Building"]
+position = Vector2(5590.25, 414)
+scale = Vector2(0.95312595, 0.75)
+texture = ExtResource("199_6a6lx")
+
 [node name="Building2" type="Node2D" parent="City"]
 position = Vector2(5981, 514)
 
@@ -8825,71 +8830,71 @@ texture = ExtResource("203_b30qb")
 position = Vector2(6455, 509)
 texture = ExtResource("204_p7yo7")
 
-[node name="5" type="Sprite2D" parent="."]
+[node name="6" type="Sprite2D" parent="City"]
 position = Vector2(6684, 524)
 scale = Vector2(1.3392856, 1.3392857)
 texture = ExtResource("205_e4la5")
 
-[node name="4" type="Sprite2D" parent="."]
+[node name="9" type="Sprite2D" parent="City"]
 z_index = -2
 position = Vector2(6549, 487)
 scale = Vector2(1.6273885, 1.5625)
 texture = ExtResource("206_ojn3i")
 
-[node name="3" type="Sprite2D" parent="."]
+[node name="10" type="Sprite2D" parent="City"]
 z_index = -3
 position = Vector2(5445.75, 471)
 scale = Vector2(1.8483871, 1.5614034)
 texture = ExtResource("207_8x5nl")
 
-[node name="Pillar" type="Sprite2D" parent="."]
+[node name="Pillar" type="Sprite2D" parent="City"]
 z_index = -2
 position = Vector2(5008, 460)
 scale = Vector2(1, 6.25)
 texture = ExtResource("145_bajc1")
 
-[node name="Pillar2" type="Sprite2D" parent="."]
+[node name="Pillar2" type="Sprite2D" parent="City"]
 z_index = -2
 position = Vector2(5092, 496)
 scale = Vector2(1, 3.9374993)
 texture = ExtResource("145_bajc1")
 
-[node name="Pillar3" type="Sprite2D" parent="."]
+[node name="Pillar3" type="Sprite2D" parent="City"]
 z_index = -2
 position = Vector2(5162, 451.5)
 scale = Vector2(1, 6.4062495)
 texture = ExtResource("145_bajc1")
 
-[node name="128x642" type="Sprite2D" parent="."]
+[node name="128x642" type="Sprite2D" parent="City"]
 position = Vector2(5009, 309)
 texture = ExtResource("147_n1jkm")
 
-[node name="64x64" type="Sprite2D" parent="."]
+[node name="64x64" type="Sprite2D" parent="City"]
 position = Vector2(5007, 229)
 texture = ExtResource("208_gewgk")
 
-[node name="7" type="Sprite2D" parent="."]
+[node name="11" type="Sprite2D" parent="City"]
 position = Vector2(5007, 231)
 texture = ExtResource("209_1kvgq")
 
-[node name="6" type="Sprite2D" parent="."]
+[node name="12" type="Sprite2D" parent="City"]
 position = Vector2(5009, 299)
 texture = ExtResource("210_v83gq")
 
-[node name="128x64" type="Sprite2D" parent="."]
+[node name="128x64" type="Sprite2D" parent="City"]
 z_index = -2
 position = Vector2(5088, 394)
 texture = ExtResource("211_085i1")
 
-[node name="128x643" type="Sprite2D" parent="."]
+[node name="128x643" type="Sprite2D" parent="City"]
 position = Vector2(5162, 297)
 texture = ExtResource("147_n1jkm")
 
-[node name="14" type="Sprite2D" parent="."]
+[node name="14" type="Sprite2D" parent="City"]
 position = Vector2(5162, 286)
 texture = ExtResource("212_3hjbg")
 
-[node name="12" type="Sprite2D" parent="."]
+[node name="13" type="Sprite2D" parent="City"]
 position = Vector2(5089, 394)
 texture = ExtResource("213_k352e")
 
