@@ -1,33 +1,46 @@
-[gd_scene load_steps=10 format=3 uid="uid://b75spgipvnq75"]
+[gd_scene load_steps=12 format=3 uid="uid://b75spgipvnq75"]
 
-[ext_resource type="Texture2D" uid="uid://cb2bei5mhkaua" path="res://Assets/Sprites/objects/Doors/1.png" id="1_v2kqg"]
+[ext_resource type="Script" uid="uid://6h0he13owtr2" path="res://Assets/Scripts/Door.gd" id="1_38p0y"]
+[ext_resource type="Texture2D" uid="uid://cb2bei5mhkaua" path="res://Assets/Sprites/objects/Doors/1.png" id="2_1r255"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38p0y"]
+atlas = ExtResource("2_1r255")
+region = Rect2(0, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e5x1j"]
-atlas = ExtResource("1_v2kqg")
+atlas = ExtResource("2_1r255")
 region = Rect2(0, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2j5t2"]
-atlas = ExtResource("1_v2kqg")
+atlas = ExtResource("2_1r255")
 region = Rect2(32, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oywik"]
-atlas = ExtResource("1_v2kqg")
+atlas = ExtResource("2_1r255")
 region = Rect2(64, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3ue2"]
-atlas = ExtResource("1_v2kqg")
+atlas = ExtResource("2_1r255")
 region = Rect2(96, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_imfgk"]
-atlas = ExtResource("1_v2kqg")
+atlas = ExtResource("2_1r255")
 region = Rect2(128, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_80tfe"]
-atlas = ExtResource("1_v2kqg")
+atlas = ExtResource("2_1r255")
 region = Rect2(160, 0, 32, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_turd7"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38p0y")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_e5x1j")
@@ -48,23 +61,26 @@ animations = [{
 "texture": SubResource("AtlasTexture_80tfe")
 }],
 "loop": false,
-"name": &"default",
+"name": &"Open",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uxlem"]
-size = Vector2(32, 48)
+size = Vector2(41, 64)
 
-[node name="next_level" type="Area2D"]
+[node name="Door" type="Area2D"]
+script = ExtResource("1_38p0y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(4.5, -39)
-scale = Vector2(1.21875, 1.21875)
+position = Vector2(8.500002, -47)
+scale = Vector2(1.46875, 1.46875)
 sprite_frames = SubResource("SpriteFrames_turd7")
-frame = 5
-frame_progress = 1.0
+animation = &"Open"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7, -24)
+position = Vector2(11.5, -32)
 shape = SubResource("RectangleShape2D_uxlem")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

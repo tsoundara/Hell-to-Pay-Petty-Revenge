@@ -9058,6 +9058,5 @@ position = Vector2(6233, 562)
 
 [node name="Door" parent="." instance=ExtResource("221_085i1")]
 position = Vector2(7084, 561)
-next_level_path = "res://Assets/Scenes/second_level.tscn"
 
 [connection signal="body_entered" from="KillZone" to="." method="_on_kill_zone_body_entered"]
