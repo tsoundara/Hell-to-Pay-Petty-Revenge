@@ -66,20 +66,20 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uxlem"]
-size = Vector2(41, 64)
+size = Vector2(60.5, 88)
 
 [node name="Door" type="Area2D"]
 script = ExtResource("1_38p0y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(8.500002, -47)
-scale = Vector2(1.46875, 1.46875)
+position = Vector2(20.5, -71)
+scale = Vector2(2.21875, 2.21875)
 sprite_frames = SubResource("SpriteFrames_turd7")
 animation = &"Open"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(11.5, -32)
+position = Vector2(25.75, -44)
 shape = SubResource("RectangleShape2D_uxlem")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

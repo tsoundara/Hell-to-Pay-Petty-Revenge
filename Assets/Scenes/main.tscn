@@ -8910,154 +8910,156 @@ texture = ExtResource("212_3hjbg")
 position = Vector2(5089, 394)
 texture = ExtResource("213_k352e")
 
-[node name="Npc3" parent="." instance=ExtResource("125_p7yo7")]
+[node name="Door" parent="." instance=ExtResource("221_085i1")]
+position = Vector2(7084, 561)
+next_level_path = "res://Assets/Scenes/second_level.tscn"
+
+[node name="NPC" type="Node2D" parent="."]
+
+[node name="Npc3" parent="NPC" instance=ExtResource("125_p7yo7")]
 position = Vector2(4205, 560)
 speed = 40.0
 patrol_distance = 100.0
 
-[node name="npc5" parent="." instance=ExtResource("216_8x5nl")]
+[node name="npc5" parent="NPC" instance=ExtResource("216_8x5nl")]
 position = Vector2(2015, 560)
 
-[node name="Npc4" parent="." instance=ExtResource("126_e4la5")]
+[node name="Npc4" parent="NPC" instance=ExtResource("126_e4la5")]
 position = Vector2(4336, 561)
 
-[node name="npc3" parent="." instance=ExtResource("216_8x5nl")]
+[node name="npc3" parent="NPC" instance=ExtResource("216_8x5nl")]
 position = Vector2(4287, 559)
 
-[node name="npc4" parent="." instance=ExtResource("217_gewgk")]
+[node name="npc4" parent="NPC" instance=ExtResource("217_gewgk")]
 position = Vector2(4134, 561)
 
-[node name="Area2D" parent="." instance=ExtResource("125_p7yo7")]
+[node name="Area2D" parent="NPC" instance=ExtResource("125_p7yo7")]
 position = Vector2(1453, 560)
 
-[node name="npc6" parent="." instance=ExtResource("219_v83gq")]
+[node name="npc6" parent="NPC" instance=ExtResource("219_v83gq")]
 position = Vector2(3001, 561)
 
-[node name="npc7" parent="." instance=ExtResource("220_085i1")]
+[node name="npc7" parent="NPC" instance=ExtResource("220_085i1")]
 position = Vector2(3163, 561)
 
-[node name="npc8" parent="." instance=ExtResource("220_085i1")]
+[node name="npc8" parent="NPC" instance=ExtResource("220_085i1")]
 position = Vector2(4256, 562)
 
-[node name="Npc5" parent="." instance=ExtResource("125_p7yo7")]
+[node name="Npc5" parent="NPC" instance=ExtResource("125_p7yo7")]
 position = Vector2(4328, 561)
 speed = 40.0
 patrol_distance = 100.0
 
-[node name="Npc6" parent="." instance=ExtResource("126_e4la5")]
+[node name="Npc6" parent="NPC" instance=ExtResource("126_e4la5")]
 position = Vector2(4459, 562)
 
-[node name="npc9" parent="." instance=ExtResource("216_8x5nl")]
+[node name="npc9" parent="NPC" instance=ExtResource("216_8x5nl")]
 position = Vector2(4410, 560)
 
-[node name="npc10" parent="." instance=ExtResource("217_gewgk")]
+[node name="npc10" parent="NPC" instance=ExtResource("217_gewgk")]
 position = Vector2(4257, 562)
 
-[node name="npc11" parent="." instance=ExtResource("220_085i1")]
+[node name="npc11" parent="NPC" instance=ExtResource("220_085i1")]
 position = Vector2(4379, 563)
 
-[node name="Npc7" parent="." instance=ExtResource("125_p7yo7")]
+[node name="Npc7" parent="NPC" instance=ExtResource("125_p7yo7")]
 position = Vector2(5002, 559)
 speed = 40.0
 patrol_distance = 100.0
 
-[node name="Npc8" parent="." instance=ExtResource("126_e4la5")]
+[node name="Npc8" parent="NPC" instance=ExtResource("126_e4la5")]
 position = Vector2(5133, 560)
 
-[node name="npc12" parent="." instance=ExtResource("216_8x5nl")]
+[node name="npc12" parent="NPC" instance=ExtResource("216_8x5nl")]
 position = Vector2(5084, 558)
 
-[node name="npc13" parent="." instance=ExtResource("217_gewgk")]
+[node name="npc13" parent="NPC" instance=ExtResource("217_gewgk")]
 position = Vector2(4931, 560)
 
-[node name="npc14" parent="." instance=ExtResource("220_085i1")]
+[node name="npc14" parent="NPC" instance=ExtResource("220_085i1")]
 position = Vector2(5053, 561)
 
-[node name="Npc9" parent="." instance=ExtResource("125_p7yo7")]
+[node name="Npc9" parent="NPC" instance=ExtResource("125_p7yo7")]
 position = Vector2(5600, 558)
 speed = 40.0
 patrol_distance = 100.0
 
-[node name="Npc10" parent="." instance=ExtResource("126_e4la5")]
+[node name="Npc10" parent="NPC" instance=ExtResource("126_e4la5")]
 position = Vector2(5731, 559)
 
-[node name="npc15" parent="." instance=ExtResource("216_8x5nl")]
+[node name="npc15" parent="NPC" instance=ExtResource("216_8x5nl")]
 position = Vector2(5682, 557)
 
-[node name="npc16" parent="." instance=ExtResource("217_gewgk")]
+[node name="npc16" parent="NPC" instance=ExtResource("217_gewgk")]
 position = Vector2(5529, 559)
 
-[node name="npc17" parent="." instance=ExtResource("220_085i1")]
+[node name="npc17" parent="NPC" instance=ExtResource("220_085i1")]
 position = Vector2(5651, 560)
 
-[node name="npc21" parent="." instance=ExtResource("220_085i1")]
+[node name="npc21" parent="NPC" instance=ExtResource("220_085i1")]
 position = Vector2(3962, 561)
 
-[node name="npc22" parent="." instance=ExtResource("220_085i1")]
+[node name="npc22" parent="NPC" instance=ExtResource("220_085i1")]
 position = Vector2(4085, 562)
 
-[node name="npc23" parent="." instance=ExtResource("220_085i1")]
+[node name="npc23" parent="NPC" instance=ExtResource("220_085i1")]
 position = Vector2(4759, 560)
 
-[node name="npc24" parent="." instance=ExtResource("220_085i1")]
+[node name="npc24" parent="NPC" instance=ExtResource("220_085i1")]
 position = Vector2(5357, 559)
 
-[node name="npc25" parent="." instance=ExtResource("220_085i1")]
+[node name="npc25" parent="NPC" instance=ExtResource("220_085i1")]
 position = Vector2(5357, 559)
 
-[node name="Npc11" parent="." instance=ExtResource("125_p7yo7")]
+[node name="Npc11" parent="NPC" instance=ExtResource("125_p7yo7")]
 position = Vector2(5879, 559)
 speed = 40.0
 patrol_distance = 100.0
 
-[node name="Npc12" parent="." instance=ExtResource("126_e4la5")]
+[node name="Npc12" parent="NPC" instance=ExtResource("126_e4la5")]
 position = Vector2(6010, 560)
 
-[node name="npc18" parent="." instance=ExtResource("216_8x5nl")]
+[node name="npc18" parent="NPC" instance=ExtResource("216_8x5nl")]
 position = Vector2(5961, 558)
 
-[node name="npc19" parent="." instance=ExtResource("217_gewgk")]
+[node name="npc19" parent="NPC" instance=ExtResource("217_gewgk")]
 position = Vector2(5808, 560)
 
-[node name="npc20" parent="." instance=ExtResource("220_085i1")]
+[node name="npc20" parent="NPC" instance=ExtResource("220_085i1")]
 position = Vector2(5930, 561)
 
-[node name="Npc13" parent="." instance=ExtResource("125_p7yo7")]
+[node name="Npc13" parent="NPC" instance=ExtResource("125_p7yo7")]
 position = Vector2(6364, 559)
 speed = 40.0
 patrol_distance = 100.0
 
-[node name="Npc14" parent="." instance=ExtResource("126_e4la5")]
+[node name="Npc14" parent="NPC" instance=ExtResource("126_e4la5")]
 position = Vector2(6495, 560)
 
-[node name="npc26" parent="." instance=ExtResource("216_8x5nl")]
+[node name="npc26" parent="NPC" instance=ExtResource("216_8x5nl")]
 position = Vector2(6446, 558)
 
-[node name="npc27" parent="." instance=ExtResource("217_gewgk")]
+[node name="npc27" parent="NPC" instance=ExtResource("217_gewgk")]
 position = Vector2(6293, 560)
 
-[node name="npc28" parent="." instance=ExtResource("220_085i1")]
+[node name="npc28" parent="NPC" instance=ExtResource("220_085i1")]
 position = Vector2(6415, 561)
 
-[node name="Npc15" parent="." instance=ExtResource("125_p7yo7")]
+[node name="Npc15" parent="NPC" instance=ExtResource("125_p7yo7")]
 position = Vector2(6182, 560)
 speed = 40.0
 patrol_distance = 100.0
 
-[node name="Npc16" parent="." instance=ExtResource("126_e4la5")]
+[node name="Npc16" parent="NPC" instance=ExtResource("126_e4la5")]
 position = Vector2(6313, 561)
 
-[node name="npc29" parent="." instance=ExtResource("216_8x5nl")]
+[node name="npc29" parent="NPC" instance=ExtResource("216_8x5nl")]
 position = Vector2(6264, 559)
 
-[node name="npc30" parent="." instance=ExtResource("217_gewgk")]
+[node name="npc30" parent="NPC" instance=ExtResource("217_gewgk")]
 position = Vector2(6111, 561)
 
-[node name="npc31" parent="." instance=ExtResource("220_085i1")]
+[node name="npc31" parent="NPC" instance=ExtResource("220_085i1")]
 position = Vector2(6233, 562)
-
-[node name="Door" parent="." instance=ExtResource("221_085i1")]
-position = Vector2(7084, 561)
-next_level_path = "res://Assets/Scenes/second_level.tscn"
 
 [connection signal="body_entered" from="KillZone" to="." method="_on_kill_zone_body_entered"]
