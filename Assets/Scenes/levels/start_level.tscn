@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://b8f7p3flhbroj"]
+[gd_scene load_steps=54 format=4 uid="uid://b8f7p3flhbroj"]
 
 [ext_resource type="PackedScene" uid="uid://bijdxm8dfcrjq" path="res://Assets/Scenes/dialog/DialogArea.tscn" id="1_5tlb0"]
 [ext_resource type="PackedScene" uid="uid://dswyscray02pf" path="res://Assets/Scenes/player.tscn" id="1_thel4"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://cy7t335bhmhnj" path="res://Assets/Sprites/objects/paper_stack.png" id="29_to84q"]
 [ext_resource type="Texture2D" uid="uid://lwswtlyid8p6" path="res://Assets/Sprites/objects/house/tv stand.png" id="30_to84q"]
 [ext_resource type="PackedScene" uid="uid://dxqkg57lf77mt" path="res://Assets/Scenes/dialog/dialog_player.tscn" id="31_cnvau"]
+[ext_resource type="PackedScene" uid="uid://b7pim77m3rnfd" path="res://Assets/Scenes/PlayerUI.tscn" id="33_mydvu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xek8o"]
 texture = ExtResource("2_7iq2y")
@@ -1132,9 +1133,11 @@ shape = SubResource("RectangleShape2D_ejdac")
 scene_text_file = "res://Assets/Scripts/json/starting_area_dialog.json"
 
 [node name="Player" parent="." instance=ExtResource("1_thel4")]
-position = Vector2(424, 316)
+position = Vector2(424, 387)
 collision_mask = 3
 
 [node name="Interaction outlines" type="Sprite2D" parent="."]
+
+[node name="PlayerUI" parent="." instance=ExtResource("33_mydvu")]
 
 [connection signal="input_event" from="BedDialog" to="TVDialog" method="_on_bed_dialog_input_event"]

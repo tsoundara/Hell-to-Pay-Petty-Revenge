@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://cj7xrh7dhsjyb"]
+[gd_scene load_steps=16 format=3 uid="uid://cj7xrh7dhsjyb"]
 
+[ext_resource type="Script" uid="uid://bf0u8cmec5vc6" path="res://Assets/Scripts/npc.gd" id="1_3tfl7"]
 [ext_resource type="Texture2D" uid="uid://myn0d1ted8or" path="res://Assets/Sprites/other_npcs/4/Idle.png" id="1_darsy"]
 [ext_resource type="Texture2D" uid="uid://ddf7wvk84ab2a" path="res://Assets/Sprites/other_npcs/4/Walk.png" id="2_3tfl7"]
 
@@ -86,32 +87,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pu1e8"]
-radius = 12.0
-height = 62.0
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_pu1e8"]
 
 [node name="npc4" type="Area2D"]
-position = Vector2(2, -14)
-monitoring = false
-monitorable = false
+script = ExtResource("1_3tfl7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(31.874996, -32.125004)
-scale = Vector2(1.921875, 1.9218752)
+position = Vector2(28, -44)
+scale = Vector2(1.8333334, 1.8333334)
 sprite_frames = SubResource("SpriteFrames_5rj47")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(12, -17)
-shape = SubResource("CapsuleShape2D_pu1e8")
+position = Vector2(8, -36)
+shape = SubResource("SegmentShape2D_pu1e8")
 
 [node name="StateTimer" type="Timer" parent="."]
-
-[node name="GroundCheckRayCast" type="RayCast2D" parent="."]
-position = Vector2(25, 14)
-target_position = Vector2(0, 16)
-
-[node name="WallCheckRayCast" type="RayCast2D" parent="."]
-position = Vector2(12, -18)
-enabled = false
-target_position = Vector2(21, 0)
