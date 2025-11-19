@@ -6217,18 +6217,6 @@ z_index = 1
 position = Vector2(5606, 514)
 texture = ExtResource("182_b30qb")
 
-[node name="npc6" parent="Map Objects" instance=ExtResource("220_085i1")]
-position = Vector2(3962, 561)
-
-[node name="npc7" parent="Map Objects" instance=ExtResource("220_085i1")]
-position = Vector2(4085, 562)
-
-[node name="npc8" parent="Map Objects" instance=ExtResource("220_085i1")]
-position = Vector2(4759, 560)
-
-[node name="npc9" parent="Map Objects" instance=ExtResource("220_085i1")]
-position = Vector2(5357, 559)
-
 [node name="Graffiti" type="Node2D" parent="."]
 
 [node name="2Squad13" type="Sprite2D" parent="Graffiti"]
@@ -9000,5 +8988,71 @@ position = Vector2(5529, 559)
 
 [node name="npc17" parent="." instance=ExtResource("220_085i1")]
 position = Vector2(5651, 560)
+
+[node name="npc21" parent="." instance=ExtResource("220_085i1")]
+position = Vector2(3962, 561)
+
+[node name="npc22" parent="." instance=ExtResource("220_085i1")]
+position = Vector2(4085, 562)
+
+[node name="npc23" parent="." instance=ExtResource("220_085i1")]
+position = Vector2(4759, 560)
+
+[node name="npc24" parent="." instance=ExtResource("220_085i1")]
+position = Vector2(5357, 559)
+
+[node name="npc25" parent="." instance=ExtResource("220_085i1")]
+position = Vector2(5357, 559)
+
+[node name="Npc11" parent="." instance=ExtResource("125_p7yo7")]
+position = Vector2(5879, 559)
+speed = 40.0
+patrol_distance = 100.0
+
+[node name="Npc12" parent="." instance=ExtResource("126_e4la5")]
+position = Vector2(6010, 560)
+
+[node name="npc18" parent="." instance=ExtResource("216_8x5nl")]
+position = Vector2(5961, 558)
+
+[node name="npc19" parent="." instance=ExtResource("217_gewgk")]
+position = Vector2(5808, 560)
+
+[node name="npc20" parent="." instance=ExtResource("220_085i1")]
+position = Vector2(5930, 561)
+
+[node name="Npc13" parent="." instance=ExtResource("125_p7yo7")]
+position = Vector2(6364, 559)
+speed = 40.0
+patrol_distance = 100.0
+
+[node name="Npc14" parent="." instance=ExtResource("126_e4la5")]
+position = Vector2(6495, 560)
+
+[node name="npc26" parent="." instance=ExtResource("216_8x5nl")]
+position = Vector2(6446, 558)
+
+[node name="npc27" parent="." instance=ExtResource("217_gewgk")]
+position = Vector2(6293, 560)
+
+[node name="npc28" parent="." instance=ExtResource("220_085i1")]
+position = Vector2(6415, 561)
+
+[node name="Npc15" parent="." instance=ExtResource("125_p7yo7")]
+position = Vector2(6182, 560)
+speed = 40.0
+patrol_distance = 100.0
+
+[node name="Npc16" parent="." instance=ExtResource("126_e4la5")]
+position = Vector2(6313, 561)
+
+[node name="npc29" parent="." instance=ExtResource("216_8x5nl")]
+position = Vector2(6264, 559)
+
+[node name="npc30" parent="." instance=ExtResource("217_gewgk")]
+position = Vector2(6111, 561)
+
+[node name="npc31" parent="." instance=ExtResource("220_085i1")]
+position = Vector2(6233, 562)
 
 [connection signal="body_entered" from="KillZone" to="." method="_on_kill_zone_body_entered"]
