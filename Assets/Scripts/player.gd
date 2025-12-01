@@ -100,6 +100,12 @@ func _physics_process(_delta: float) -> void:
 		# Handle Jump Input
 		if Input.is_action_just_pressed("ui_up") and is_on_floor():
 			velocity.y = jump_velocity
+		# 🟢 NEW: Handle Drop Down through One-Way Platforms
+		if Input.is_action_just_pressed("ui_down") and is_on_floor():
+			# Pushing the player down by 2 pixels forces them off the floor,
+			# allowing gravity to pull them through the one-way collision mask.
+			global_position.y += 2.0
+			velocity.y = 0
 		# Get horizontal input direction
 		direction = Input.get_axis("ui_left", "ui_right")
 		# Handle horizontal movement

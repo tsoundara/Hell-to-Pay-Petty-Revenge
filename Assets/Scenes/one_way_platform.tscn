@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://hm84t060kwdh"]
+
+[ext_resource type="Texture2D" uid="uid://bu603k0lnjoug" path="res://Assets/Sprites/Tiles/residential street/Tile_40.png" id="1_kxtrv"]
+[ext_resource type="Script" uid="uid://cfsp8kudi2i3c" path="res://Assets/Scripts/OneWayPlatform.gd" id="1_xg78m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xg78m"]
+size = Vector2(67, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p847i"]
+size = Vector2(69, 10)
+
+[node name="OneWayPlatform" type="StaticBody2D"]
+collision_layer = 2
+script = ExtResource("1_xg78m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.0937498, 1)
+texture = ExtResource("1_kxtrv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -12)
+shape = SubResource("RectangleShape2D_xg78m")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(0.5, -12)
+shape = SubResource("RectangleShape2D_p847i")
