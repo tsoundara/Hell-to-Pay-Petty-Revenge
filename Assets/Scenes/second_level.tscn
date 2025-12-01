@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=4 uid="uid://b2wqec8acn5nq"]
+[gd_scene load_steps=86 format=4 uid="uid://b2wqec8acn5nq"]
 
 [ext_resource type="Texture2D" uid="uid://c2xdio2i8ybe6" path="res://Assets/Sprites/Tiles/residential street/Tile_27.png" id="1_ahag5"]
 [ext_resource type="Texture2D" uid="uid://ckm7aad6q6d13" path="res://Assets/Sprites/Tiles/residential street/Tile_01.png" id="1_r44lk"]
@@ -2818,10 +2818,10 @@ texture = ExtResource("24_dv38t")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yjfph"]
 texture = ExtResource("26_q5bp2")
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 0, -8, -0.5395756)
 0:0/0/physics_layer_0/polygon_0/one_way = true
 1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 0, -8, -0.5395756)
 1:0/0/physics_layer_0/polygon_0/one_way = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wui4w"]
@@ -2907,6 +2907,9 @@ sources/31 = SubResource("TileSetAtlasSource_8ap1h")
 sources/29 = SubResource("TileSetAtlasSource_y5euw")
 sources/30 = SubResource("TileSetAtlasSource_hkol5")
 sources/32 = SubResource("TileSetAtlasSource_yjfph")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5s1q"]
+size = Vector2(32, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5bp2"]
 texture = ExtResource("40_ix1o6")
@@ -5669,8 +5672,18 @@ tile_set = SubResource("TileSet_5p4pk")
 [node name="Player" parent="." instance=ExtResource("6_lkwjt")]
 z_index = 1
 position = Vector2(131, 384)
-scale = Vector2(0.92000186, 0.8400024)
 game_over_screen_scene = ExtResource("32_dbxsu")
+
+[node name="OneWayPlatform" type="Sprite2D" parent="."]
+position = Vector2(-48, 335)
+texture = ExtResource("26_q5bp2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform/StaticBody2D"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_y5s1q")
+one_way_collision = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -5684,7 +5697,7 @@ texture = ExtResource("32_8ap1h")
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(-356.00003, 354)
+position = Vector2(-355.00006, 354)
 scale = Vector2(3.0019288, 3.0138888)
 texture = ExtResource("33_0jq01")
 offset = Vector2(167.4109, -35.08757)

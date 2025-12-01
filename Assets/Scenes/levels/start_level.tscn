@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=4 uid="uid://b8f7p3flhbroj"]
+[gd_scene load_steps=66 format=4 uid="uid://b8f7p3flhbroj"]
 
 [ext_resource type="PackedScene" uid="uid://bijdxm8dfcrjq" path="res://Assets/Scenes/dialog/DialogArea.tscn" id="1_5tlb0"]
 [ext_resource type="PackedScene" uid="uid://dswyscray02pf" path="res://Assets/Scenes/player.tscn" id="1_thel4"]
@@ -13,16 +13,16 @@
 [ext_resource type="Texture2D" uid="uid://k3x71ooirvk" path="res://Assets/Sprites/Tiles/city/Tile_13.png" id="8_yjaly"]
 [ext_resource type="Texture2D" uid="uid://br2rcp5d08k1w" path="res://Assets/Sprites/Tiles/city/Tile_05.png" id="9_sm335"]
 [ext_resource type="Texture2D" uid="uid://c07lp6x06omj1" path="res://Assets/Sprites/Tiles/city/Tile_06.png" id="10_6v33r"]
-[ext_resource type="Texture2D" uid="uid://dd4tntgviyuhb" path="res://Assets/Sprites/objects/table or desk.png" id="12_21ww4"]
-[ext_resource type="Texture2D" uid="uid://c6lqpwu8o0ip4" path="res://Assets/Sprites/objects/couch.png" id="13_v00nt"]
-[ext_resource type="Texture2D" uid="uid://bdsflhcah14ne" path="res://Assets/Sprites/objects/door.png" id="14_d40gi"]
-[ext_resource type="Texture2D" uid="uid://dusoc1wfy8f3k" path="res://Assets/Sprites/objects/closet.png" id="16_2jwiu"]
-[ext_resource type="Texture2D" uid="uid://cnt7mogpaboch" path="res://Assets/Sprites/objects/fridge.png" id="17_lo6nv"]
-[ext_resource type="Texture2D" uid="uid://bo0t2u8qfxwak" path="res://Assets/Sprites/objects/bed.png" id="18_oujmw"]
-[ext_resource type="Texture2D" uid="uid://bsgsvr8xrckim" path="res://Assets/Sprites/objects/kitchen sink.png" id="19_oujmw"]
-[ext_resource type="Texture2D" uid="uid://beypp2erdg2a1" path="res://Assets/Sprites/objects/sink.png" id="20_fdhcy"]
+[ext_resource type="Texture2D" uid="uid://dd4tntgviyuhb" path="res://Assets/Sprites/objects/house/table or desk.png" id="12_21ww4"]
+[ext_resource type="Texture2D" uid="uid://c6lqpwu8o0ip4" path="res://Assets/Sprites/objects/house/couch.png" id="13_v00nt"]
+[ext_resource type="Texture2D" uid="uid://bdsflhcah14ne" path="res://Assets/Sprites/objects/house/door.png" id="14_d40gi"]
+[ext_resource type="Texture2D" uid="uid://dusoc1wfy8f3k" path="res://Assets/Sprites/objects/house/closet.png" id="16_2jwiu"]
+[ext_resource type="Texture2D" uid="uid://cnt7mogpaboch" path="res://Assets/Sprites/objects/house/fridge.png" id="17_lo6nv"]
+[ext_resource type="Texture2D" uid="uid://bo0t2u8qfxwak" path="res://Assets/Sprites/objects/house/bed.png" id="18_oujmw"]
+[ext_resource type="Texture2D" uid="uid://bsgsvr8xrckim" path="res://Assets/Sprites/objects/house/kitchen sink.png" id="19_oujmw"]
+[ext_resource type="Texture2D" uid="uid://beypp2erdg2a1" path="res://Assets/Sprites/objects/house/sink.png" id="20_fdhcy"]
 [ext_resource type="Shader" uid="uid://bfee5qkrmn0y0" path="res://Assets/Scripts/2D_outlines.gdshader" id="20_mydvu"]
-[ext_resource type="Texture2D" uid="uid://co6m2uup1qjam" path="res://Assets/Sprites/objects/toilet.png" id="21_ft1hv"]
+[ext_resource type="Texture2D" uid="uid://co6m2uup1qjam" path="res://Assets/Sprites/objects/house/toilet.png" id="21_ft1hv"]
 [ext_resource type="Texture2D" uid="uid://m7328n2aa85b" path="res://Assets/Sprites/objects/Other/Garbage_Can2.png" id="22_66xwd"]
 [ext_resource type="Texture2D" uid="uid://cv28lccgt3gh4" path="res://Assets/Sprites/objects/house/shower.png" id="22_diji7"]
 [ext_resource type="Texture2D" uid="uid://cbxqfmqe15r5o" path="res://Assets/Sprites/Tiles/city/Tile_84.png" id="23_3388g"]
@@ -33,7 +33,8 @@
 [ext_resource type="Texture2D" uid="uid://cy7t335bhmhnj" path="res://Assets/Sprites/objects/paper_stack.png" id="29_to84q"]
 [ext_resource type="Texture2D" uid="uid://lwswtlyid8p6" path="res://Assets/Sprites/objects/house/tv stand.png" id="30_to84q"]
 [ext_resource type="PackedScene" uid="uid://dxqkg57lf77mt" path="res://Assets/Scenes/dialog/dialog_player.tscn" id="31_cnvau"]
-[ext_resource type="PackedScene" uid="uid://b7pim77m3rnfd" path="res://Assets/Scenes/PlayerUI.tscn" id="33_mydvu"]
+[ext_resource type="Texture2D" uid="uid://n0rlsdo3kdbt" path="res://Assets/Sprites/UI/move.png" id="34_ynqqd"]
+[ext_resource type="Texture2D" uid="uid://cdtlg3w5ok1uh" path="res://Assets/Sprites/UI/interact.png" id="35_ejdac"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xek8o"]
 texture = ExtResource("2_7iq2y")
@@ -1219,6 +1220,15 @@ scene_text_file = "res://Assets/Scripts/json/starting_area_dialog.json"
 
 [node name="Player" parent="." instance=ExtResource("1_thel4")]
 position = Vector2(424, 387)
-collision_mask = 3
+
+[node name="Move" type="Sprite2D" parent="."]
+position = Vector2(433, 268)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("34_ynqqd")
+
+[node name="Interact" type="Sprite2D" parent="."]
+position = Vector2(579, 274)
+scale = Vector2(0.17833339, 0.17833339)
+texture = ExtResource("35_ejdac")
 
 [connection signal="input_event" from="Bed/BedDialog" to="Tv/TVDialog" method="_on_bed_dialog_input_event"]
