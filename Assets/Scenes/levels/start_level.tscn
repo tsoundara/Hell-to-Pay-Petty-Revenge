@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://b8f7p3flhbroj"]
+[gd_scene load_steps=67 format=4 uid="uid://b8f7p3flhbroj"]
 
 [ext_resource type="PackedScene" uid="uid://bijdxm8dfcrjq" path="res://Assets/Scenes/dialog/DialogArea.tscn" id="1_5tlb0"]
 [ext_resource type="PackedScene" uid="uid://dswyscray02pf" path="res://Assets/Scenes/player.tscn" id="1_thel4"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://cy7t335bhmhnj" path="res://Assets/Sprites/objects/paper_stack.png" id="29_to84q"]
 [ext_resource type="Texture2D" uid="uid://lwswtlyid8p6" path="res://Assets/Sprites/objects/house/tv stand.png" id="30_to84q"]
 [ext_resource type="PackedScene" uid="uid://dxqkg57lf77mt" path="res://Assets/Scenes/dialog/dialog_player.tscn" id="31_cnvau"]
+[ext_resource type="PackedScene" uid="uid://b7pim77m3rnfd" path="res://Assets/Scenes/PlayerUI.tscn" id="34_dytsh"]
 [ext_resource type="Texture2D" uid="uid://n0rlsdo3kdbt" path="res://Assets/Sprites/UI/move.png" id="34_ynqqd"]
 [ext_resource type="Texture2D" uid="uid://cdtlg3w5ok1uh" path="res://Assets/Sprites/UI/interact.png" id="35_ejdac"]
 
@@ -1220,6 +1221,9 @@ scene_text_file = "res://Assets/Scripts/json/starting_area_dialog.json"
 
 [node name="Player" parent="." instance=ExtResource("1_thel4")]
 position = Vector2(424, 387)
+
+[node name="PlayerUI" parent="." instance=ExtResource("34_dytsh")]
+unique_name_in_owner = true
 
 [node name="Move" type="Sprite2D" parent="."]
 position = Vector2(433, 268)
