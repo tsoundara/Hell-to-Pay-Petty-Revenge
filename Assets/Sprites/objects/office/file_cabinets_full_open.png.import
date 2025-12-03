@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8yi3m8rhkswl"
-path="res://.godot/imported/move.png-231e4472acc27064ae4f46130798a959.ctex"
+uid="uid://csab7twrw27sg"
+path="res://.godot/imported/file_cabinets_full_open.png-784604b0dce720909d558368fdbf08d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/UI/move.png"
-dest_files=["res://.godot/imported/move.png-231e4472acc27064ae4f46130798a959.ctex"]
+source_file="res://Assets/Sprites/objects/office/file_cabinets_full_open.png"
+dest_files=["res://.godot/imported/file_cabinets_full_open.png-784604b0dce720909d558368fdbf08d8.ctex"]
 
 [params]
 

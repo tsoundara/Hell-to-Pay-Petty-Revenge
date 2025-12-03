@@ -1,16 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://5grdrtlsy2oq"]
+[gd_scene load_steps=7 format=3 uid="uid://5grdrtlsy2oq"]
 
 [ext_resource type="Script" uid="uid://cnf2j2ldeknhr" path="res://Assets/Scripts/MainMenu.gd" id="1_hywc3"]
 [ext_resource type="Texture2D" uid="uid://ct326lr4bjyaf" path="res://Assets/Sprites/UI/play1.png" id="2_pi1tf"]
 [ext_resource type="Texture2D" uid="uid://coytix116b5u1" path="res://Assets/Sprites/UI/play2.png" id="3_ldl0q"]
 [ext_resource type="Texture2D" uid="uid://br5bt61xl5cid" path="res://Assets/Sprites/UI/Quit1.png" id="4_m0f51"]
 [ext_resource type="Texture2D" uid="uid://bf3e0m6q73al" path="res://Assets/Sprites/UI/Quit2.png" id="5_cwbci"]
-[ext_resource type="Texture2D" uid="uid://xu8onw01v3s8" path="res://Assets/Sprites/Backgrounds/city 8/1.png" id="6_o1tui"]
-[ext_resource type="Texture2D" uid="uid://c7g6aoxvk2jmd" path="res://Assets/Sprites/Backgrounds/city 8/2.png" id="7_q5p6k"]
-[ext_resource type="Texture2D" uid="uid://d3vbrypxjyr2c" path="res://Assets/Sprites/Backgrounds/city 8/3.png" id="8_eqyh1"]
-[ext_resource type="Texture2D" uid="uid://cwiji1trdpfpi" path="res://Assets/Sprites/Backgrounds/city 8/4.png" id="9_ho3wo"]
-[ext_resource type="Texture2D" uid="uid://cqe7eys2v4gsu" path="res://Assets/Sprites/Backgrounds/city 8/5.png" id="10_i2ox8"]
-[ext_resource type="Texture2D" uid="uid://c4tjmqe6hfykl" path="res://Assets/Sprites/Backgrounds/city 8/6.png" id="11_d6kuf"]
+[ext_resource type="Texture2D" uid="uid://vu1xghyq3qqb" path="res://Assets/Sprites/Backgrounds/city 8/7.png" id="6_cwbci"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_hywc3")
@@ -48,56 +43,11 @@ layout_mode = 2
 texture_normal = ExtResource("4_m0f51")
 texture_pressed = ExtResource("5_cwbci")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Control"]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Control/ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Control/ParallaxBackground/ParallaxLayer"]
-position = Vector2(577.5, 322.5)
-scale = Vector2(1.9809028, 1.9722222)
-texture = ExtResource("6_o1tui")
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="Control/ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Control/ParallaxBackground/ParallaxLayer2"]
-position = Vector2(577.5, 322.5)
-scale = Vector2(1.9809028, 1.9722222)
-texture = ExtResource("7_q5p6k")
-
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="Control/ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Control/ParallaxBackground/ParallaxLayer3"]
-position = Vector2(577.5, 322.5)
-scale = Vector2(1.9809028, 1.9722222)
-texture = ExtResource("8_eqyh1")
-
-[node name="ParallaxLayer4" type="ParallaxLayer" parent="Control/ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Control/ParallaxBackground/ParallaxLayer4"]
-position = Vector2(577.5, 322.5)
-scale = Vector2(1.9809028, 1.9722222)
-texture = ExtResource("9_ho3wo")
-
-[node name="ParallaxLayer5" type="ParallaxLayer" parent="Control/ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Control/ParallaxBackground/ParallaxLayer5"]
-position = Vector2(577.5, 322.5)
-scale = Vector2(1.9809028, 1.9722222)
-texture = ExtResource("10_i2ox8")
-
-[node name="ParallaxLayer6" type="ParallaxLayer" parent="Control/ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Control/ParallaxBackground/ParallaxLayer6"]
-position = Vector2(577.5, 322.5)
-scale = Vector2(1.9809028, 1.9722222)
-texture = ExtResource("11_d6kuf")
-
-[node name="ParallaxLayer7" type="ParallaxLayer" parent="Control/ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Control/ParallaxBackground/ParallaxLayer7"]
-position = Vector2(577.5, 322.5)
-scale = Vector2(1.9809028, 1.9722222)
-texture = ExtResource("11_d6kuf")
+[node name="7" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(581, 329)
+scale = Vector2(0.49479166, 0.49382716)
+texture = ExtResource("6_cwbci")
 
 [connection signal="pressed" from="Control/VBoxContainer/Button_Play" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Button_Quit" to="." method="_on_button_quit_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=4 uid="uid://b2wqec8acn5nq"]
+[gd_scene load_steps=83 format=4 uid="uid://b2wqec8acn5nq"]
 
 [ext_resource type="Texture2D" uid="uid://c2xdio2i8ybe6" path="res://Assets/Sprites/Tiles/residential street/Tile_27.png" id="1_ahag5"]
 [ext_resource type="Texture2D" uid="uid://ckm7aad6q6d13" path="res://Assets/Sprites/Tiles/residential street/Tile_01.png" id="1_r44lk"]
@@ -2906,9 +2906,6 @@ sources/29 = SubResource("TileSetAtlasSource_y5euw")
 sources/30 = SubResource("TileSetAtlasSource_hkol5")
 sources/32 = SubResource("TileSetAtlasSource_yjfph")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5s1q"]
-size = Vector2(32, 8)
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5bp2"]
 texture = ExtResource("40_ix1o6")
 1:1/0 = 0
@@ -5672,28 +5669,6 @@ z_index = 1
 position = Vector2(131, 384)
 scale = Vector2(0.79, 0.79)
 game_over_screen_scene = ExtResource("32_dbxsu")
-
-[node name="OneWayPlatform" type="Sprite2D" parent="."]
-position = Vector2(-45, 319)
-texture = ExtResource("26_q5bp2")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform/StaticBody2D"]
-position = Vector2(0, -12)
-shape = SubResource("RectangleShape2D_y5s1q")
-one_way_collision = true
-
-[node name="OneWayPlatform2" type="Sprite2D" parent="."]
-position = Vector2(-14, 319)
-texture = ExtResource("26_q5bp2")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform2/StaticBody2D"]
-position = Vector2(0, -12)
-shape = SubResource("RectangleShape2D_y5s1q")
-one_way_collision = true
 
 [node name="PauseMenu" parent="." instance=ExtResource("34_kx6e1")]
 

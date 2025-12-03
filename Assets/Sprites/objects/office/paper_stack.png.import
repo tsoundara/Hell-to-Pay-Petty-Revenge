@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8yi3m8rhkswl"
-path="res://.godot/imported/move.png-231e4472acc27064ae4f46130798a959.ctex"
+uid="uid://cy7t335bhmhnj"
+path="res://.godot/imported/paper_stack.png-132978b3ca640dffc6e46c4e52bec15b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/UI/move.png"
-dest_files=["res://.godot/imported/move.png-231e4472acc27064ae4f46130798a959.ctex"]
+source_file="res://Assets/Sprites/objects/office/paper_stack.png"
+dest_files=["res://.godot/imported/paper_stack.png-132978b3ca640dffc6e46c4e52bec15b.ctex"]
 
 [params]
 

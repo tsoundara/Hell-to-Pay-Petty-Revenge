@@ -37,13 +37,11 @@ func _input(event: InputEvent) -> void:
 		print("Both done:", Player.has_interacted_all(["letters_dialog", "tv_dialog"]))
 
 func _ready() -> void:
-	# 💡 FIX 1: Current health must be set BEFORE initializing the UI!
+	# Current health must be set BEFORE initializing the UI!
 	current_health = max_health
 	
 	# This ensures the health label shows "5 / 5" at the start of the game.
 	if is_instance_valid(ui) and ui.has_method("initialize_ui"):
-		# We now pass the current health and score (0) to initialize the UI.
-		#The UI is initialized *every time* the Player scene loads.
 		ui.initialize_ui(max_health)
 	else:
 		print("ERROR: Player UI node (%PlayerUI) not found or script is missing!")
@@ -64,7 +62,7 @@ func take_damage(amount: int, knockback_force: Vector2) -> void:
 	if current_health < 0:
 		current_health = 0
 		
-   # 💡 FIX 2: UPDATE UI DISPLAY ON DAMAGE
+   # UPDATE UI DISPLAY ON DAMAGE
 	# This call tells the UI script to update the number immediately.
 	if is_instance_valid(ui) and ui.has_method("update_health"):
 		ui.update_health(current_health)
