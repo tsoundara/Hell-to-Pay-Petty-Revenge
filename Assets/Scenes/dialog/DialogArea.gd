@@ -14,7 +14,7 @@ func _ready():
 	print("Outline target for", self.get_path(), "is", outline_target)
 
 
-# Search child nodes recursively for a node with a ShaderMaterial
+# Search child nodes for node with ShaderMaterial
 func _find_outline_target(node: Node) -> Node:
 	for child in node.get_children():
 		var found = _find_outline_target(child)
@@ -69,7 +69,7 @@ func _input(event):
 			print(Player.interacted_objects)
 			print("==========================")
 
-# Search parent nodes for a node with a ShaderMaterial
+# Search parent nodes for node with ShaderMaterial
 func _find_outline_target_upwards(node: Node) -> Node:
 	var current = node.get_parent()
 
