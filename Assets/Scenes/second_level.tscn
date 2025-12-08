@@ -5719,7 +5719,7 @@ scale = Vector2(0.87, 0.918)
 
 [node name="Door" parent="." instance=ExtResource("46_y5s1q")]
 position = Vector2(2701, 240)
-next_level_path = "res://Assets/Scenes/commissioners_office.tscn"
+next_level_path = "res://Assets/Scenes/levels/commissioners_office.tscn"
 
 [node name="Decorations" type="Node2D" parent="."]
 
