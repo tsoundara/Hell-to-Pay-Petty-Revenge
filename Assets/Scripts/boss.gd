@@ -13,7 +13,6 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $BossAnimatedSprite
 @onready var detection_area: Area2D = $DetectionArea
 @onready var attack_area: Area2D = $AttackArea
-@onready var attack_cooldown_timer: Timer = $AttackCooldownTimer
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var health_bar: ProgressBar = $ProgressBar
 
@@ -24,11 +23,12 @@ var is_chasing: bool = false
 var is_attacking: bool = false
 var is_dead: bool = false
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
+var attack_cooldown_value: float = 0.0
+
 
 # --- INITIALIZATION ---
 func _ready() -> void:
 	current_health = max_health
-	attack_cooldown_timer.wait_time = attack_cooldown_time
 	animated_sprite.play("Idle")
 	
 	# Set initial attack area position (assuming boss faces right by default)
@@ -45,6 +45,15 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
+		
+	if attack_cooldown_value > 0.0:
+		attack_cooldown_value -= delta
+		# Check if the cooldown period has just finished
+		if attack_cooldown_value <= 0.0:
+			# Reset the attack state and hitbox monitoring
+			is_attacking = false
+			attack_area.monitoring = false
+			animated_sprite.play("Idle") # Ensure boss is not stuck in an attack pose
 
 	# Apply gravity
 	if not is_on_floor():
@@ -80,7 +89,7 @@ func handle_chase_and_attack(delta: float) -> void:
 		# Attack range reached
 		velocity.x = 0
 		animated_sprite.play("Idle")
-		if attack_cooldown_timer.is_stopped():
+		if attack_cooldown_value <= 0.0:
 			attack()
 	else:
 		# Chase player
@@ -97,7 +106,7 @@ func attack() -> void:
 	#// This prevents the "player already overlapping" bug.
 	_check_initial_overlap()
 	
-	attack_cooldown_timer.start()
+	attack_cooldown_value = attack_cooldown_time
 	
 
 func _on_animated_sprite_animation_finished():
@@ -107,14 +116,6 @@ func _on_animated_sprite_animation_finished():
 		# The timer timeout controls the reset of is_attacking = false
 		if not is_dead:
 			animated_sprite.play("Idle")
-
-
-func _on_attack_cooldown_timer_timeout():
-	is_attacking = false
-	attack_area.monitoring = false
-	animated_sprite.play("Idle")
-	# Now the boss is ready to check the range and attack again in _physics_process
-
 
 # --- DAMAGE APPLICATION ---
 func _check_initial_overlap() -> void:
@@ -132,7 +133,7 @@ func _apply_damage(body: Node) -> void:
 		#// Deal 1 HP damage
 		var knockback_direction = sign(body.global_position.x - global_position.x)
 		var knockback_force = Vector2(knockback_direction * 500, -50)
-		body.take_damage(3, knockback_force)
+		body.take_damage(2, knockback_force)
 
 # --- BOSS STATS AND DAMAGE ---
 func take_damage(amount: int, knockback_force: Vector2) -> void:
@@ -161,7 +162,6 @@ func die() -> void:
 	collision_shape.set_deferred("disabled", true) # Disable main body collision
 	attack_area.monitoring = false
 	health_bar.hide()
-	attack_cooldown_timer.stop()
 	
 	#// Wait for death animation, then remove the boss
 	await animated_sprite.animation_finished

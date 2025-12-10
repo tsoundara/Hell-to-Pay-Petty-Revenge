@@ -200,7 +200,6 @@ bg_color = Color(0.3094494, 0.62594587, 1.92523e-07, 1)
 
 [node name="FinalBoss" type="CharacterBody2D" groups=["Boss"]]
 script = ExtResource("1_152vv")
-attack_cooldown_time = 0.0
 
 [node name="BossAnimatedSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -64)
@@ -225,8 +224,6 @@ shape = SubResource("CircleShape2D_iq6rc")
 position = Vector2(0, -45)
 shape = SubResource("RectangleShape2D_152vv")
 
-[node name="AttackCooldownTimer" type="Timer" parent="."]
-
 [node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = -32.0
 offset_top = -72.0
@@ -239,4 +236,3 @@ show_percentage = false
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
-[connection signal="timeout" from="AttackCooldownTimer" to="." method="_on_attack_cooldown_timer_timeout"]

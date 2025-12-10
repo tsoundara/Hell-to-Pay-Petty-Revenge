@@ -464,4 +464,3 @@ texture = ExtResource("9_ivf2y")
 
 [node name="FinalBoss" parent="." instance=ExtResource("17_ivf2y")]
 position = Vector2(623, 399)
-attack_cooldown_time = 0.245
