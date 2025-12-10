@@ -4,6 +4,6 @@ extends Node2D
 
 func _ready():
 	print("Level ready, about to emit signal")
-	await get_tree().create_timer(1.25).timeout  # Small delay
+	await get_tree().create_timer(0.5).timeout  # Small delay
 	SignalBus.display_dialog.emit("commissioner")
 	print("Signal emitted")
