@@ -20,7 +20,7 @@ var zoomed_in := Vector2(2.0, 2.0)
 @onready var attack_area: Area2D = $AttackArea
 
 var is_attacking: bool = false
-var direction: float = 0.0 # Store the current input direction
+var direction: float = 0.0 # Store the current direction
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Attack") and not is_attacking:
@@ -40,11 +40,11 @@ func _input(event: InputEvent) -> void:
 		print("Both done:", Player.has_interacted_all(["letters_dialog", "tv_dialog"]))
 
 func _ready() -> void:
-	# Current health must be set BEFORE initializing the UI!
+	# Current health set BEFORE initializing the UI
 	current_health = max_health
 	add_to_group("player")
 	
-	# This ensures the health label shows "5 / 5" at the start of the game.
+	# This ensures the health label shows "__ / __" at the start of the game.
 	if is_instance_valid(ui) and ui.has_method("initialize_ui"):
 		# We now pass the current health and score (0) to initialize the UI.
 		# The UI is initialized every time the Player scene loads.
@@ -69,13 +69,11 @@ func take_damage(amount: int, knockback_force: Vector2) -> void:
 		current_health = 0
 		
 	# UPDATE UI DISPLAY ON DAMAGE
-	# This call tells the UI script to update the number immediately.
 	if is_instance_valid(ui) and ui.has_method("update_health"):
 		ui.update_health(current_health)
 		
 	# Apply knockback
 	velocity = knockback_force
-	# Optional: flash red or play hurt animation
 	flash_red()
 	if current_health <= 0:
 		die()
@@ -104,7 +102,7 @@ func _physics_process(_delta: float) -> void:
 		# Handle Jump Input
 		if Input.is_action_just_pressed("ui_up") and is_on_floor():
 			velocity.y = jump_velocity
-		# 🟢 NEW: Handle Drop Down through One-Way Platforms
+		# Handle Drop Down through One-Way Platforms
 		if Input.is_action_just_pressed("ui_down") and is_on_floor():
 			# This small nudge down forces the player off the platform's top surface.
 			#// Since the platform has One Way Collision enabled, the player immediately falls through.
@@ -119,7 +117,7 @@ func _physics_process(_delta: float) -> void:
 			attack_area.position.x = attack_offset_x * sign(direction)
 			
 		else:
-			# Decelerate when no input is pressed
+			# Decellerate when no input is pressed
 			velocity.x = move_toward(velocity.x, 0, speed)
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed * _delta * 5)
@@ -138,7 +136,7 @@ func _physics_process(_delta: float) -> void:
 	# Move the character using physics
 	move_and_slide()
 
-# This function is called when the "attack" animation finishes playing
+# This function is called when attack animation finishes playing
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite.animation == "Attack":
 		is_attacking = false
@@ -195,7 +193,7 @@ func die() -> void:
 	await animated_sprite.animation_finished
 	queue_free()
 
-# This function should only handle damage and *check* for death, 
+# This function should only handle damage and check for death, 
 # not handle the scene reload itself unless you are doing a soft respawn.
 # We only want to take damage (1) and call die() if health hits zero.
 func take_damage_and_respawn() -> void:
@@ -215,7 +213,6 @@ func take_damage_and_respawn() -> void:
 			ui.update_health(current_health)
 			
 		set_physics_process(true)
-	# NOTE: If current_health <= 0, the take_damage call above already called die().
 		
 func win() -> void:
 	# Disable player movement and input

@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var walk_speed: float = 80.0
 @export var chase_speed: float = 120.0
 @export var attack_range: float = 60.0
-@export var attack_cooldown_time: float = 1.5
+@export var attack_cooldown_time: float = 1.25
 @export var attack_hitbox_offset_x: float = 40.0 # Distance of the attack box from the boss center (facing right)
 @export var player_knockback_x: float = 500.0 # Horizontal force applied to player on hit
 @export var player_knockback_y: float = -50.0 # Vertical force applied (upwards)
@@ -26,7 +26,7 @@ var is_chasing: bool = false
 var is_attacking: bool = false
 var is_dead: bool = false
 var is_taking_knockback: bool = false
-var time_since_last_attack: float = 999.0  # ADD THIS - starts high so can attack immediately
+var time_since_last_attack: float = 999.0
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var attack_cooldown_value: float = 0.0
 
@@ -52,7 +52,6 @@ func _ready() -> void:
 	
 	# Also connect the attack area signal
 	attack_area.body_entered.connect(_on_attack_area_body_entered)
-	detection_area.collision_mask = 0b11111111  # Detects layers 1-8
 	detection_area.area_entered.connect(_on_detection_area_area_entered)
 	
 	var shapes = detection_area.get_children()
@@ -65,7 +64,7 @@ func _ready() -> void:
 	print("Detection area monitoring: ", detection_area.monitoring)
 	print("Detection area collision mask: ", detection_area.collision_mask)
 
-# --- PHYSICS PROCESS (Movement & AI Logic) ---
+# --- PHYSICS PROCESS ---
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
@@ -78,9 +77,7 @@ func _physics_process(delta: float) -> void:
 	if is_taking_knockback:
 		move_and_slide()
 		return
-	
-	# print("PHYSICS_PROCESS - is_chasing: ", is_chasing, " | player exists: ", player != null, " | is_attacking: ", is_attacking)
-	
+		
 	if is_chasing and player:
 		handle_chase_and_attack(delta)
 	else:
@@ -98,9 +95,7 @@ func handle_chase_and_attack(delta: float) -> void:
 		
 	var distance_to_player = global_position.distance_to(player.global_position)
 	var direction = sign(player.global_position.x - global_position.x)
-	
-	print("CHASE - distance: ", distance_to_player, " | attack_range: ", attack_range, " | time_since_attack: ", time_since_last_attack, " | is_attacking: ", is_attacking)
-	
+		
 	animated_sprite.flip_h = direction < 0
 	attack_area.position.x = attack_hitbox_offset_x * direction
 	
@@ -113,10 +108,10 @@ func handle_chase_and_attack(delta: float) -> void:
 		velocity.x = 0
 		animated_sprite.play("Idle")
 		if time_since_last_attack >= attack_cooldown_time:
-			print("CHASE - In range and cooldown ready, starting attack")
+			print("CHASE - In range and ready, starting attack")
 			attack()
 		else:
-			print("CHASE - In range but cooldown not ready")
+			print("CHASE - In range but not ready")
 	else:
 		print("CHASE - Moving toward player")
 		animated_sprite.play("Walk")
@@ -131,16 +126,14 @@ func attack() -> void:
 	_check_initial_overlap()
 	
 	# Use a timer instead of waiting for animation
-	await get_tree().create_timer(1.0).timeout  # Adjust to match your attack animation length
+	await get_tree().create_timer(1.0).timeout  # Adjust to match attack animation length
 	
 	print("Attack timer finished")
 	if not is_dead:
 		print("Resetting attack state")
 		is_attacking = false
 		attack_area.monitoring = false
-		# Remove the animation control - let handle_chase_and_attack() control it
 
-# --- DAMAGE APPLICATION ---
 func _check_initial_overlap() -> void:
 	var overlapping_bodies = attack_area.get_overlapping_bodies()
 	for body in overlapping_bodies:
@@ -155,7 +148,7 @@ func _apply_damage(body: Node) -> void:
 		body.take_damage(2, knockback_force)
 	attack_area.monitoring = false
 
-# --- BOSS STATS AND DAMAGE ---
+# --- STATS AND DAMAGE ---
 func take_damage(amount: int, knockback_force: Vector2) -> void:
 	if is_dead:
 		return
@@ -194,14 +187,10 @@ func die() -> void:
 	# Stop on last frame
 	animated_sprite.stop()
 	animated_sprite.frame = animated_sprite.sprite_frames.get_frame_count("Dead") - 1
-	# WIN CONDITION: Wait for death animation, then load the win screen
 	
-	# 1. Check if the scene is set
 	if win_screen_scene:
-		# 2. Pause the game
 		get_tree().paused = true
 		
-		# 3. Instantiate and add the Win Screen to the scene tree root
 		var win_screen_instance = win_screen_scene.instantiate()
 		get_tree().root.add_child(win_screen_instance)
 		print("Boss defeated. Displaying Win Screen.")
@@ -239,4 +228,5 @@ func _on_attack_area_body_entered(body: Node) -> void:
 		_apply_damage(body)
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
-	print("DETECTION - Area entered: ", area.name, " | owner: ", area.owner.name if area.owner else "no owner")
+	
+	print("DETECTION - Area entered: ", area.name, " with owner: ", area.owner.name if area.owner else "no owner")

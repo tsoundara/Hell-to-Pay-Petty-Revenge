@@ -44,7 +44,7 @@ func next_line():
 	show_text()
 
 func _input(event):
-	# Only advance dialog if a dialog is active and allowed to advance
+	# Only advance dialog if active and allowed to advance
 	if in_progress and can_advance and event.is_action_pressed("ui_accept"):
 		next_line()
 

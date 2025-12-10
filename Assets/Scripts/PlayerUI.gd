@@ -1,16 +1,9 @@
-extends CanvasLayer # Correctly extends CanvasLayer to stay fixed on screen
-
-#This script controls the heads-up display (HUD). It updates the Label nodes
-# based on data received from the Player script.
-
-# 🚨 FIX: Using explicit node paths instead of %UniqueName for reliability 🚨
-#/ ASSUMPTION: Your scene structure is PlayerUI -> MarginContainer -> HBoxContainer -> HealthValue
-# Adjust the path below if your structure is different (e.g., if you don't use MarginContainer)
+extends CanvasLayer
 
 @onready var health_value_label: Label = %HealthValue
 @onready var score_value_label: Label = %ScoreValue
 
-# Variables to store max health (for display) and score 
+# Variables to store max health and score 
 var max_health: int = 0
 var current_score: int = 0
 
@@ -21,7 +14,7 @@ func initialize_ui(max_hp: int, initial_score: int = 0) -> void:
 	max_health = max_hp
 	current_score = initial_score
 	
-	# CRITICAL CHECK: Ensure the label node was found before trying to set its text
+	# Ensure the label node was found before trying to set its text
 	if not is_instance_valid(health_value_label):
 		print("UI ERROR: health_value_label is null. Check node path in PlayerUI.gd.")
 		return
@@ -33,13 +26,11 @@ func initialize_ui(max_hp: int, initial_score: int = 0) -> void:
 func update_health(new_health: int) -> void:
 	# Called by Player.gd whenever the player's health changes (takes damage, heals).
 	
-	# CRITICAL CHECK: Prevent crash if the node is null
+	# Prevent crash if the node is null
 	if not is_instance_valid(health_value_label):
 		print("UI ERROR: Cannot update health, health_value_label is null.")
 		return
 		
-	# Update the HealthValue label with the current health count, 
-	# displayed in the "Current / Max" format (e.g., 3 / 5).
 	health_value_label.text = str(new_health) + " / " + str(max_health)
 
 # --- Score Management (Placeholder) ---
@@ -49,7 +40,7 @@ func update_score(new_score: int) -> void:
 		print("UI ERROR: Cannot update score, score_value_label is null.")
 		return
 		
-	# This function is ready to be called by enemies or collectibles when the 
+	# This part is ready to be called by enemies or collectibles when the 
 	# player gains points.
 	current_score = new_score
 	score_value_label.text = str(new_score)

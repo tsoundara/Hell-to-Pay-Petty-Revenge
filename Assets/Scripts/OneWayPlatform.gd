@@ -1,5 +1,4 @@
 extends StaticBody2D
-#// You would attach this script to your one-way platform node.
 
 # Use an Area2D to detect when the player is standing on the platform
 @onready var detection_area: Area2D = $DetectionArea 

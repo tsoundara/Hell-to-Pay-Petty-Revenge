@@ -5695,11 +5695,6 @@ win_screen_scene = ExtResource("104_7onjj")
 [node name="PlayerUI" parent="." instance=ExtResource("218_gewgk")]
 unique_name_in_owner = true
 
-[node name="Enemy_1" parent="." instance=ExtResource("108_g6l5g")]
-z_index = 1
-position = Vector2(331, 561)
-attack_cooldown = 0.8
-
 [node name="Enemy_2" parent="." instance=ExtResource("108_g6l5g")]
 position = Vector2(1042, 560)
 attack_cooldown = 0.8
@@ -10120,7 +10115,7 @@ texture = ExtResource("158_1gu4w")
 [node name="Door" parent="." instance=ExtResource("221_085i1")]
 z_index = -1
 position = Vector2(7208, 561)
-next_level_path = "res://Assets/Scenes/second_level.tscn"
+next_level_path = "res://Assets/Scenes/levels/second_level.tscn"
 
 [node name="NPC" type="Node2D" parent="."]
 

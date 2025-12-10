@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=4 uid="uid://qovjtvked74u"]
+[gd_scene load_steps=85 format=4 uid="uid://b2wqec8acn5nq"]
 
 [ext_resource type="Texture2D" uid="uid://c2xdio2i8ybe6" path="res://Assets/Sprites/Tiles/residential street/Tile_27.png" id="1_ahag5"]
 [ext_resource type="Texture2D" uid="uid://ckm7aad6q6d13" path="res://Assets/Sprites/Tiles/residential street/Tile_01.png" id="1_r44lk"]
@@ -5784,16 +5784,15 @@ position = Vector2(-641.00006, 368)
 scale = Vector2(1.03125, 1.0625)
 texture = ExtResource("39_1pdw4")
 
-[node name="97" type="Sprite2D" parent="Decorations"]
-position = Vector2(2896, 221)
+[node name="95" type="Sprite2D" parent="Decorations/95"]
+position = Vector2(2996.3635, -47.058823)
 rotation = -1.5707964
-scale = Vector2(1.1299438, 1.1641846)
+scale = Vector2(1.03125, 1.0625)
 texture = ExtResource("39_1pdw4")
 
-[node name="96" type="Sprite2D" parent="Decorations"]
-position = Vector2(2449, 318)
-rotation = -1.5707964
-scale = Vector2(1.0957031, 1.0957031)
+[node name="95" type="Sprite2D" parent="Decorations/95/95"]
+position = Vector2(88.52764, 407.95728)
+scale = Vector2(1.03125, 1.0625)
 texture = ExtResource("39_1pdw4")
 
 [node name="GarbageCan2" type="Sprite2D" parent="Decorations"]

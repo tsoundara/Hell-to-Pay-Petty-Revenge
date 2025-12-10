@@ -54,7 +54,6 @@ func _change_state(new_state: int) -> void:
 			var idle_time = randf_range(idle_min_time, idle_max_time)
 			state_timer.start(idle_time)
 
-			# Optional: Decide to turn around during idle, before starting to walk again.
 			if randi() % 2 == 0:
 				_turn_around()
 			

@@ -43,7 +43,7 @@ func _set_outline_enabled(enabled: bool) -> void:
 	if not (mat is ShaderMaterial):
 		return
 
-	mat.set_shader_parameter("outline_enabled", enabled)  # Change shader parameter
+	mat.set_shader_parameter("outline_enabled", enabled)
 
 
 func _input(event):
@@ -92,11 +92,11 @@ func _on_area_entered(area):
 		return
 	area_active = true
 	dialog_started = false
-	_set_outline_enabled(true)  # Show outline
+	_set_outline_enabled(true) 
 
-# When player exits area, turn off outline
+# When player leaves area, turn off outline
 func _on_area_exited(area):
 	if not area_active:
 		return
 	area_active = false
-	_set_outline_enabled(false)  # Hide outline
+	_set_outline_enabled(false)

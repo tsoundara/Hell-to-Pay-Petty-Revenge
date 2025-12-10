@@ -48,7 +48,6 @@ func die() -> void:
 	velocity = Vector2.ZERO
 	animated_sprite.play("Death")
 	$CollisionShape2D.set_deferred("disabled", true)
-	# ✅ Add points to player
 	if player and player.has_method("add_score"):
 		player.add_score(100)
 	await animated_sprite.animation_finished
@@ -78,7 +77,7 @@ func patrol(_delta: float) -> void:
 	animated_sprite.flip_h = direction < 0
 	# Flip the Attack Area position
 	attack_area.position.x = base_attack_offset_x * direction 
-	# 💡 FIX: Flip both RayCasts to face the current direction
+	# Flip both RayCasts to face the current direction
 	ground_check_ray.scale.x = direction
 	wall_check_ray.scale.x = direction
 	
@@ -103,7 +102,7 @@ func chase_player(_delta: float) -> void:
 	var distance = player.global_position.x - global_position.x
 	direction = sign(distance)
 	animated_sprite.flip_h = direction < 0
-	# 🚨 FIX: Flip the Attack Area position 🚨
+	# Flip the Attack Area position
 	attack_area.position.x = base_attack_offset_x * direction # This mirrors the hitbox
 	
 	# Flip the RayCasts
@@ -137,7 +136,7 @@ func attack() -> void:
 	is_attacking = true
 	can_attack = false
 	velocity.x = 0
-	# 🟢 FIX: Check for overlapping bodies immediately when the attack starts
+	# Check for overlapping bodies immediately when the attack starts
 	_check_initial_overlap()
 	# Pick a random attack animation
 	var attack_anim = "Attack1" if randi() % 2 == 0 else "Attack2"
@@ -146,17 +145,16 @@ func attack() -> void:
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true
 
-# 🟢 NEW FUNCTION: Handles damage for bodies already overlapping at the start of the attack
+# Handle damage for bodies already overlapping at the start of the attack
 func _check_initial_overlap() -> void:
 	var overlapping_bodies = attack_area.get_overlapping_bodies()
 	for body in overlapping_bodies:
 		if body.is_in_group("player"):
 			# Only apply damage once for the initial overlap check
 			_apply_damage(body)
-			# NOTE: We break here because the enemy only needs to hit one player.
 			break
 
-# 🟢 NEW FUNCTION: Centralize the damage logic
+# Centralize the damage logic
 func _apply_damage(body: Node) -> void:
 	# Calculate knockback direction
 	var dir = sign(body.global_position.x - global_position.x)
@@ -179,7 +177,7 @@ func _on_detection_area_body_exited(body: Node) -> void:
 		var distance_to_start = start_position.x - global_position.x
 		direction = sign(distance_to_start)
 		animated_sprite.flip_h = direction < 0
-		# 🚨 FIX: Update Attack Area when exiting chase 🚨
+		# Update Attack Area when exiting chase
 		attack_area.position.x = base_attack_offset_x * direction
 		velocity.x = 0
 
@@ -191,7 +189,7 @@ func _on_enemy_animated_sprite_animation_finished() -> void:
 		queue_free()
 
 func _on_attack_area_body_entered(body: Node) -> void:
-# 💡 Update: We now rely on is_attacking state and the new central damage function.
+# Rely on is_attacking state and the new central damage function.
 	if not is_attacking:
 		return
 	if body.is_in_group("player"):
