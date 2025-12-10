@@ -6,21 +6,21 @@
 [ext_resource type="Texture2D" uid="uid://dr6ey30wtmab4" path="res://Assets/Sprites/enemy/Capitan/boss_walk.png" id="4_iq6rc"]
 [ext_resource type="Texture2D" uid="uid://cha5ycobu3gcv" path="res://Assets/Sprites/enemy/Capitan/boss_attack.png" id="5_152vv"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_opcs1"]
-atlas = ExtResource("5_152vv")
-region = Rect2(0, 64, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o133f"]
-atlas = ExtResource("5_152vv")
-region = Rect2(128, 64, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iq6rc"]
-atlas = ExtResource("5_152vv")
-region = Rect2(256, 64, 128, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_pd6se"]
 atlas = ExtResource("5_152vv")
-region = Rect2(384, 64, 128, 64)
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3fbu"]
+atlas = ExtResource("5_152vv")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dfun"]
+atlas = ExtResource("5_152vv")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ks5dn"]
+atlas = ExtResource("5_152vv")
+region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ryimh"]
 atlas = ExtResource("2_iq6rc")
@@ -98,18 +98,18 @@ region = Rect2(896, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_opcs1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o133f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iq6rc")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_pd6se")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3fbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dfun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ks5dn")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack",
 "speed": 5.0
 }, {
@@ -126,7 +126,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vokxe")
 }],
-"loop": true,
+"loop": false,
 "name": &"Dead",
 "speed": 5.0
 }, {
@@ -187,25 +187,27 @@ animations = [{
 size = Vector2(20, 65)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iq6rc"]
-radius = 52.03845
+radius = 96.02083
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_152vv"]
 size = Vector2(20, 10.5)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_152vv"]
-bg_color = Color(0, 0.6988979, 0.59066075, 1)
+bg_color = Color(0.98039216, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dn206"]
-bg_color = Color(1, 0, 0.011764706, 1)
+bg_color = Color(0.3094494, 0.62594587, 1.92523e-07, 1)
 
-[node name="FinalBoss" type="CharacterBody2D"]
+[node name="FinalBoss" type="CharacterBody2D" groups=["Boss"]]
 script = ExtResource("1_152vv")
 
 [node name="BossAnimatedSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(3, -64)
+position = Vector2(0, -64)
 scale = Vector2(1.2313433, 1)
 sprite_frames = SubResource("SpriteFrames_akh2v")
-animation = &"Idle"
+animation = &"Attack"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -32)
@@ -224,8 +226,6 @@ shape = SubResource("CircleShape2D_iq6rc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(0, -45)
 shape = SubResource("RectangleShape2D_152vv")
-
-[node name="AttackCooldownTimer" type="Timer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = -32.0

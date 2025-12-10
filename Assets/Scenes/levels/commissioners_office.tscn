@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://c6i4l63lmoe0d"]
+[gd_scene load_steps=25 format=4 uid="uid://c6i4l63lmoe0d"]
 
 [ext_resource type="Script" uid="uid://hl4nk2moafus" path="res://Assets/Scenes/levels/commissioners_office.gd" id="1_ivf2y"]
 [ext_resource type="Texture2D" uid="uid://dkk1drvpu5emf" path="res://Assets/Sprites/objects/Other/Buildings.png" id="2_2lsnc"]
@@ -17,7 +17,10 @@
 [ext_resource type="Texture2D" uid="uid://csab7twrw27sg" path="res://Assets/Sprites/objects/office/file_cabinets_full_open.png" id="15_ivf2y"]
 [ext_resource type="Shader" uid="uid://bfee5qkrmn0y0" path="res://Assets/Scripts/2D_outlines.gdshader" id="15_yydde"]
 [ext_resource type="Texture2D" uid="uid://bdsflhcah14ne" path="res://Assets/Sprites/objects/house/door.png" id="16_ctx1q"]
+[ext_resource type="PackedScene" uid="uid://cpgom8htueta" path="res://Assets/Scenes/game_over_screen.tscn" id="16_l1ccl"]
 [ext_resource type="PackedScene" uid="uid://cgu1bfeixihfb" path="res://Assets/Scenes/final_boss.tscn" id="17_ivf2y"]
+[ext_resource type="PackedScene" uid="uid://ctad5pkruuw7t" path="res://Assets/Scenes/WinCollectable.tscn" id="17_yydde"]
+[ext_resource type="PackedScene" uid="uid://c1knns4gemfqd" path="res://Assets/Scenes/WinScreen.tscn" id="21_ctx1q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6yl4o"]
 texture = ExtResource("2_2lsnc")
@@ -439,6 +442,8 @@ texture = ExtResource("16_ctx1q")
 
 [node name="Player" parent="." instance=ExtResource("3_bxeaw")]
 position = Vector2(435, 401)
+game_over_screen_scene = ExtResource("16_l1ccl")
+win_screen_scene = ExtResource("17_yydde")
 
 [node name="PlayerUI" parent="." instance=ExtResource("4_c0a57")]
 unique_name_in_owner = true
@@ -460,3 +465,7 @@ texture = ExtResource("9_ivf2y")
 
 [node name="FinalBoss" parent="." instance=ExtResource("17_ivf2y")]
 position = Vector2(623, 399)
+attack_cooldown_time = 3.0
+player_knockback_x = 603.425
+player_knockback_y = 100.0
+win_screen_scene = ExtResource("21_ctx1q")

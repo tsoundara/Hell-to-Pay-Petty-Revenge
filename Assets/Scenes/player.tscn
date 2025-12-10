@@ -302,7 +302,6 @@ size = Vector2(36, 66)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 3
-safe_margin = 2.045
 script = ExtResource("1_im2xp")
 speed = 250.0
 max_health = 10

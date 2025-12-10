@@ -7,14 +7,15 @@ extends CharacterBody2D
 @export var chase_speed: float = 120.0
 @export var attack_range: float = 60.0
 @export var attack_cooldown_time: float = 1.5
-@export var attack_hitbox_offset_x: float = 40.0
+@export var attack_hitbox_offset_x: float = 40.0 # Distance of the attack box from the boss center (facing right)
+@export var player_knockback_x: float = 500.0 # Horizontal force applied to player on hit
+@export var player_knockback_y: float = -50.0 # Vertical force applied (upwards)
+@export var win_screen_scene: PackedScene # Reference to the WinScreen.tscn to load on death
 
 # --- NODE REFERENCES ---
 @onready var animated_sprite: AnimatedSprite2D = $BossAnimatedSprite
 @onready var detection_area: Area2D = $DetectionArea
 @onready var attack_area: Area2D = $AttackArea
-# REMOVE THIS LINE:
-# @onready var attack_cooldown_timer: Timer = $AttackCooldownTimer
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var health_bar: ProgressBar = $ProgressBar
 
@@ -27,12 +28,13 @@ var is_dead: bool = false
 var is_taking_knockback: bool = false
 var time_since_last_attack: float = 999.0  # ADD THIS - starts high so can attack immediately
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
+var attack_cooldown_value: float = 0.0
+
 
 # --- INITIALIZATION ---
 func _ready() -> void:
 	add_to_group("enemies")
 	current_health = max_health
-	# REMOVE timer lines
 	animated_sprite.play("Idle")
 	attack_area.position.x = attack_hitbox_offset_x
 	attack_area.monitoring = false
@@ -149,8 +151,9 @@ func _check_initial_overlap() -> void:
 func _apply_damage(body: Node) -> void:
 	if body.has_method("take_damage"):
 		var knockback_direction = sign(body.global_position.x - global_position.x)
-		var knockback_force = Vector2(knockback_direction * 100, -50)
-		body.take_damage(1, knockback_force)
+		var knockback_force = Vector2(knockback_direction * player_knockback_x, player_knockback_y)
+		body.take_damage(2, knockback_force)
+	attack_area.monitoring = false
 
 # --- BOSS STATS AND DAMAGE ---
 func take_damage(amount: int, knockback_force: Vector2) -> void:
@@ -191,6 +194,21 @@ func die() -> void:
 	# Stop on last frame
 	animated_sprite.stop()
 	animated_sprite.frame = animated_sprite.sprite_frames.get_frame_count("Dead") - 1
+	# WIN CONDITION: Wait for death animation, then load the win screen
+	
+	# 1. Check if the scene is set
+	if win_screen_scene:
+		# 2. Pause the game
+		get_tree().paused = true
+		
+		# 3. Instantiate and add the Win Screen to the scene tree root
+		var win_screen_instance = win_screen_scene.instantiate()
+		get_tree().root.add_child(win_screen_instance)
+		print("Boss defeated. Displaying Win Screen.")
+	else:
+		print("ERROR: Win Screen Scene not set in Boss Inspector!")
+		
+
 
 # --- SIGNAL CONNECTIONS ---
 func _on_detection_area_body_entered(body: Node) -> void:

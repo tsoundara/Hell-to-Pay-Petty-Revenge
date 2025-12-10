@@ -151,26 +151,28 @@ func _on_attack_area_body_entered(body: Node) -> void:
 	if not is_attacking:
 		return
 	
+	# Calculate knockback vector once
+	var knockback_direction = sign(body.global_position.x - global_position.x)
+	var knockback = Vector2(200 * knockback_direction, -100)
+	
 	if body.is_in_group("enemies"):
-		# Check if enemy is boss or regular enemy
 		if body.has_method("take_damage"):
-			# Boss
-			var knockback_dir = sign(body.global_position.x - global_position.x)
-			var knockback_force = Vector2(knockback_dir * 200, -100)
-			body.take_damage(1, knockback_force)
-		else:
-			# Regular enemy
+			# Boss or larger enemies with health
+			body.take_damage(1, knockback)
+		elif body.has_method("die"):
+			# Small enemies die immediately
 			body.die()
 
 func _check_initial_overlap() -> void:
 	var overlapping_bodies = attack_area.get_overlapping_bodies()
 	for body in overlapping_bodies:
 		if body.is_in_group("enemies"):
+			var knockback_direction = sign(body.global_position.x - global_position.x)
+			var knockback = Vector2(200 * knockback_direction, -100)
+			
 			if body.has_method("take_damage"):
-				var knockback_dir = sign(body.global_position.x - global_position.x)
-				var knockback_force = Vector2(knockback_dir * 200, -100)
-				body.take_damage(1, knockback_force)
-			else:
+				body.take_damage(1, knockback)
+			elif body.has_method("die"):
 				body.die()
 			break
 
