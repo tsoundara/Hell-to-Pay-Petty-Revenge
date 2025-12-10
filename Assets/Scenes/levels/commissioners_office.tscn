@@ -1,5 +1,6 @@
 [gd_scene load_steps=23 format=4 uid="uid://c6i4l63lmoe0d"]
 
+[ext_resource type="Script" uid="uid://hl4nk2moafus" path="res://Assets/Scenes/levels/commissioners_office.gd" id="1_ivf2y"]
 [ext_resource type="Texture2D" uid="uid://dkk1drvpu5emf" path="res://Assets/Sprites/objects/Other/Buildings.png" id="2_2lsnc"]
 [ext_resource type="Texture2D" uid="uid://cita62mwxp32j" path="res://Assets/Sprites/objects/house/chair.png" id="3_bbwxm"]
 [ext_resource type="PackedScene" uid="uid://dswyscray02pf" path="res://Assets/Scenes/player.tscn" id="3_bxeaw"]
@@ -351,6 +352,7 @@ shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/outline_enabled = false
 
 [node name="CommissionersOffice" type="Node2D"]
+script = ExtResource("1_ivf2y")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(120, 0)

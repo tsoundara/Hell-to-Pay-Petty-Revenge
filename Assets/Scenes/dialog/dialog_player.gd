@@ -15,6 +15,7 @@ func _ready():
 	set_process_mode(ProcessMode.PROCESS_MODE_ALWAYS)
 	background.visible = false
 	# Load the JSON dialog
+	scene_text_file = "res://Assets/Scripts/json/dialog.json"
 	if scene_text_file != null:
 		scene_text = load_scene_text()
 	else:
@@ -28,7 +29,7 @@ func load_scene_text():
 	var file = FileAccess.open(scene_text_file, FileAccess.READ)
 	var data = JSON.parse_string(file.get_as_text())
 	print("Loaded JSON:", data)
-	return JSON.parse_string(file.get_as_text())
+	return data
 
 func show_text(): 
 	if selected_text.size() == 0: 
