@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://b8f7p3flhbroj"]
+[gd_scene load_steps=79 format=4 uid="uid://b8f7p3flhbroj"]
 
 [ext_resource type="PackedScene" uid="uid://bijdxm8dfcrjq" path="res://Assets/Scenes/dialog/DialogArea.tscn" id="1_5tlb0"]
 [ext_resource type="PackedScene" uid="uid://dswyscray02pf" path="res://Assets/Scenes/player.tscn" id="1_thel4"]
@@ -34,9 +34,20 @@
 [ext_resource type="Texture2D" uid="uid://lwswtlyid8p6" path="res://Assets/Sprites/objects/house/tv stand.png" id="30_to84q"]
 [ext_resource type="PackedScene" uid="uid://dxqkg57lf77mt" path="res://Assets/Scenes/dialog/dialog_player.tscn" id="31_cnvau"]
 [ext_resource type="PackedScene" uid="uid://b7pim77m3rnfd" path="res://Assets/Scenes/PlayerUI.tscn" id="34_dytsh"]
-[ext_resource type="Texture2D" uid="uid://b8yi3m8rhkswl" path="res://Assets/Sprites/UI/move.png" id="34_ynqqd"]
-[ext_resource type="Texture2D" uid="uid://cdtlg3w5ok1uh" path="res://Assets/Sprites/UI/interact.png" id="35_ejdac"]
 [ext_resource type="Texture2D" uid="uid://bfvbrov3it5gj" path="res://Assets/Sprites/Tiles/bar street/Tiles_63.png" id="37_5xms7"]
+[ext_resource type="Texture2D" uid="uid://sxcr8i4iv13" path="res://Assets/Sprites/UI/SpaceBar.png" id="37_ohrjg"]
+[ext_resource type="Texture2D" uid="uid://f2d8rsgg2iqe" path="res://Assets/Sprites/UI/arrows.png" id="38_amwgn"]
+[ext_resource type="Texture2D" uid="uid://dadjw1u7t1s4n" path="res://Assets/Sprites/objects/Graffiti/Letters/M.png" id="38_ey5xs"]
+[ext_resource type="Texture2D" uid="uid://cojv5qj5bymyc" path="res://Assets/Sprites/objects/Graffiti/Letters/O.png" id="39_ntmig"]
+[ext_resource type="Texture2D" uid="uid://b8j0bspmro5x4" path="res://Assets/Sprites/objects/Graffiti/Letters/V.png" id="40_m6pik"]
+[ext_resource type="Texture2D" uid="uid://bkueyht7n68sk" path="res://Assets/Sprites/objects/Graffiti/Letters/E.png" id="41_ew374"]
+[ext_resource type="Texture2D" uid="uid://damcy2yxiv2xu" path="res://Assets/Sprites/objects/Graffiti/Letters/I.png" id="42_comco"]
+[ext_resource type="Texture2D" uid="uid://efbbi3m10v5b" path="res://Assets/Sprites/objects/Graffiti/Letters/n2.png" id="43_lxi2v"]
+[ext_resource type="Texture2D" uid="uid://d0bccoklcqfi3" path="res://Assets/Sprites/objects/Graffiti/Letters/T.png" id="44_lh40c"]
+[ext_resource type="Texture2D" uid="uid://uf1lvxyoa22w" path="res://Assets/Sprites/objects/Graffiti/Letters/e2.png" id="45_koca0"]
+[ext_resource type="Texture2D" uid="uid://dh57qieg0tn13" path="res://Assets/Sprites/objects/Graffiti/Letters/r2.png" id="46_ejc87"]
+[ext_resource type="Texture2D" uid="uid://chihgfa8r5nis" path="res://Assets/Sprites/objects/Graffiti/Letters/a2.png" id="47_316n4"]
+[ext_resource type="Texture2D" uid="uid://vekvbwn2lhya" path="res://Assets/Sprites/objects/Graffiti/Letters/c2.png" id="48_oprx6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dytsh"]
 texture = ExtResource("2_7iq2y")
@@ -1242,14 +1253,75 @@ position = Vector2(424, 387)
 [node name="PlayerUI" parent="." instance=ExtResource("34_dytsh")]
 unique_name_in_owner = true
 
-[node name="Move" type="Sprite2D" parent="."]
-position = Vector2(433, 268)
-scale = Vector2(0.22, 0.22)
-texture = ExtResource("34_ynqqd")
+[node name="SpaceBar" type="Sprite2D" parent="."]
+position = Vector2(543, 325)
+scale = Vector2(2.2734375, 2.2734375)
+texture = ExtResource("37_ohrjg")
 
-[node name="Interact" type="Sprite2D" parent="."]
-position = Vector2(579, 274)
-scale = Vector2(0.17833339, 0.17833339)
-texture = ExtResource("35_ejdac")
+[node name="Arrows" type="Sprite2D" parent="."]
+position = Vector2(440, 397.00003)
+scale = Vector2(2.7421875, 2.7421875)
+texture = ExtResource("38_amwgn")
+
+[node name="M" type="Sprite2D" parent="."]
+position = Vector2(410, 247.5)
+scale = Vector2(1.1666666, 1.1666666)
+texture = ExtResource("38_ey5xs")
+metadata/_edit_group_ = true
+
+[node name="O" type="Sprite2D" parent="."]
+position = Vector2(425, 248.50002)
+texture = ExtResource("39_ntmig")
+metadata/_edit_group_ = true
+
+[node name="V" type="Sprite2D" parent="."]
+position = Vector2(438, 248.50002)
+texture = ExtResource("40_m6pik")
+metadata/_edit_group_ = true
+
+[node name="E" type="Sprite2D" parent="."]
+position = Vector2(450, 247.50002)
+texture = ExtResource("41_ew374")
+metadata/_edit_group_ = true
+
+[node name="I" type="Sprite2D" parent="."]
+position = Vector2(553, 250)
+texture = ExtResource("42_comco")
+metadata/_edit_group_ = true
+
+[node name="N2" type="Sprite2D" parent="."]
+position = Vector2(558, 250)
+texture = ExtResource("43_lxi2v")
+metadata/_edit_group_ = true
+
+[node name="T" type="Sprite2D" parent="."]
+position = Vector2(565, 250)
+texture = ExtResource("44_lh40c")
+metadata/_edit_group_ = true
+
+[node name="E2" type="Sprite2D" parent="."]
+position = Vector2(574, 250)
+texture = ExtResource("45_koca0")
+metadata/_edit_group_ = true
+
+[node name="R2" type="Sprite2D" parent="."]
+position = Vector2(583, 250)
+texture = ExtResource("46_ejc87")
+metadata/_edit_group_ = true
+
+[node name="A2" type="Sprite2D" parent="."]
+position = Vector2(592, 250)
+texture = ExtResource("47_316n4")
+metadata/_edit_group_ = true
+
+[node name="C2" type="Sprite2D" parent="."]
+position = Vector2(602, 250)
+texture = ExtResource("48_oprx6")
+metadata/_edit_group_ = true
+
+[node name="T2" type="Sprite2D" parent="."]
+position = Vector2(609, 250)
+texture = ExtResource("44_lh40c")
+metadata/_edit_group_ = true
 
 [connection signal="input_event" from="Bed/BedDialog" to="Tv/TVDialog" method="_on_bed_dialog_input_event"]

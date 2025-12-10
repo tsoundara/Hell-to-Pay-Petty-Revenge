@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdtlg3w5ok1uh"
-path="res://.godot/imported/interact.png-5e584526be2afaf7ecf5a684654cdf51.ctex"
+uid="uid://cxbqrhliaw87b"
+path="res://.godot/imported/Shift.png-329c4c5ffb9467b0801d7877d54bee69.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/UI/interact.png"
-dest_files=["res://.godot/imported/interact.png-5e584526be2afaf7ecf5a684654cdf51.ctex"]
+source_file="res://Assets/Sprites/UI/Shift.png"
+dest_files=["res://.godot/imported/Shift.png-329c4c5ffb9467b0801d7877d54bee69.ctex"]
 
 [params]
 

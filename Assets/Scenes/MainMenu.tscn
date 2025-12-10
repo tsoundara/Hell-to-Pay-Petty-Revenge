@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://5grdrtlsy2oq"]
+[gd_scene load_steps=8 format=3 uid="uid://5grdrtlsy2oq"]
 
 [ext_resource type="Script" uid="uid://cnf2j2ldeknhr" path="res://Assets/Scripts/MainMenu.gd" id="1_hywc3"]
 [ext_resource type="Texture2D" uid="uid://ct326lr4bjyaf" path="res://Assets/Sprites/UI/play1.png" id="2_pi1tf"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://br5bt61xl5cid" path="res://Assets/Sprites/UI/Quit1.png" id="4_m0f51"]
 [ext_resource type="Texture2D" uid="uid://bf3e0m6q73al" path="res://Assets/Sprites/UI/Quit2.png" id="5_cwbci"]
 [ext_resource type="Texture2D" uid="uid://vu1xghyq3qqb" path="res://Assets/Sprites/Backgrounds/city 8/7.png" id="6_cwbci"]
+[ext_resource type="Texture2D" uid="uid://c2hb5cl3mjhx6" path="res://Assets/Sprites/UI/Title thingy.png" id="7_47kk4"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_hywc3")
@@ -48,6 +49,11 @@ z_index = -1
 position = Vector2(581, 329)
 scale = Vector2(0.49479166, 0.49382716)
 texture = ExtResource("6_cwbci")
+
+[node name="TitleThingy" type="Sprite2D" parent="."]
+position = Vector2(575, 200)
+scale = Vector2(0.11999999, 0.12)
+texture = ExtResource("7_47kk4")
 
 [connection signal="pressed" from="Control/VBoxContainer/Button_Play" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Button_Quit" to="." method="_on_button_quit_pressed"]

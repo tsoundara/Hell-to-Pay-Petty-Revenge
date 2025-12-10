@@ -1,7 +1,7 @@
-[gd_scene load_steps=375 format=4 uid="uid://dhro26orw11l7"]
+[gd_scene load_steps=380 format=4 uid="uid://dhro26orw11l7"]
 
 [ext_resource type="Texture2D" uid="uid://da6jcageyp4ah" path="res://Assets/Sprites/Tiles/city/Tile_01.png" id="1_cno1q"]
-[ext_resource type="Script" uid="uid://c5x5p1hlm7p1k" path="res://Assets/Scripts/main.gd" id="1_i1jbo"]
+[ext_resource type="Script" path="res://Assets/Scripts/main.gd" id="1_i1jbo"]
 [ext_resource type="Texture2D" uid="uid://58vnpajft21n" path="res://Assets/Sprites/Tiles/city/Tile_10.png" id="2_g6l5g"]
 [ext_resource type="Texture2D" uid="uid://swdqs4fpxtuj" path="res://Assets/Sprites/objects/Other/Props-01.png" id="2_k3ao8"]
 [ext_resource type="Texture2D" uid="uid://c7x8xljynh7vp" path="res://Assets/Sprites/Tiles/city/Tile_100.png" id="3_j5ivo"]
@@ -143,8 +143,6 @@
 [ext_resource type="Texture2D" uid="uid://dcfm034jc3kjy" path="res://Assets/Sprites/objects/Trees/Tree2.png" id="115_7onjj"]
 [ext_resource type="Texture2D" uid="uid://mtwmr4hgn7on" path="res://Assets/Sprites/objects/Other/Skateboard1.png" id="116_pylca"]
 [ext_resource type="Texture2D" uid="uid://dfu2w2a464dm" path="res://Assets/Sprites/objects/Other/Rapm3.png" id="117_7onjj"]
-[ext_resource type="Texture2D" uid="uid://dwpwbs5cjlc3p" path="res://Assets/Sprites/UI/Puch.png" id="119_p2usd"]
-[ext_resource type="Texture2D" uid="uid://catb70oe4ouhu" path="res://Assets/Sprites/UI/jump.png" id="120_3pau4"]
 [ext_resource type="Texture2D" uid="uid://bswja7el5k4og" path="res://Assets/Sprites/objects/Other/Ramp2.png" id="123_g3r3s"]
 [ext_resource type="Texture2D" uid="uid://cc458afi8xndj" path="res://Assets/Sprites/objects/Trees/Tree4.png" id="124_khsip"]
 [ext_resource type="Texture2D" uid="uid://csna8bphedgao" path="res://Assets/Sprites/objects/Trees/Tree3.png" id="125_mgut0"]
@@ -177,15 +175,23 @@
 [ext_resource type="Texture2D" uid="uid://dk106c66bc1ll" path="res://Assets/Sprites/objects/Barriers/4_4.png" id="155_oqor1"]
 [ext_resource type="Texture2D" uid="uid://c2ncpq1l5qh03" path="res://Assets/Sprites/objects/City_Road_Objects/Camera3.png" id="158_1gu4w"]
 [ext_resource type="Texture2D" uid="uid://0xj58ehmu85d" path="res://Assets/Sprites/objects/Graffiti/2Squad13.png" id="159_tag6f"]
-[ext_resource type="Texture2D" uid="uid://bn0hnnrvsmt0c" path="res://Assets/Sprites/objects/Graffiti/7Dangerarea.png" id="160_yx1as"]
+[ext_resource type="Texture2D" uid="uid://sxcr8i4iv13" path="res://Assets/Sprites/UI/SpaceBar.png" id="160_3baq3"]
+[ext_resource type="Texture2D" uid="uid://cbgye2w8l16yw" path="res://Assets/Sprites/UI/UPArrow.png" id="160_40i7d"]
 [ext_resource type="Texture2D" uid="uid://b2g6h6l416jmu" path="res://Assets/Sprites/objects/Road signs/1.png" id="161_570ok"]
 [ext_resource type="Texture2D" uid="uid://c6vkycnyadfgu" path="res://Assets/Sprites/objects/Stones/1.png" id="162_wwq2h"]
 [ext_resource type="Texture2D" uid="uid://upi37oseuo6c" path="res://Assets/Sprites/objects/Stones/3.png" id="163_570ok"]
 [ext_resource type="Texture2D" uid="uid://dnq8cpfott8rw" path="res://Assets/Sprites/objects/Stones/6.png" id="164_n35yy"]
 [ext_resource type="Texture2D" uid="uid://bmh02arkp5eqb" path="res://Assets/Sprites/objects/Pillars/9_1.png" id="180_nklgb"]
 [ext_resource type="Texture2D" uid="uid://d3twg3phif7sx" path="res://Assets/Sprites/objects/Pillars/9_2.png" id="181_3kxa8"]
+[ext_resource type="Texture2D" uid="uid://2tqkih0yt0vl" path="res://Assets/Sprites/objects/Graffiti/Letters/J1.png" id="181_yul73"]
 [ext_resource type="Texture2D" uid="uid://ba3jrf1rmifao" path="res://Assets/Sprites/objects/Showcases/3.png" id="182_b30qb"]
+[ext_resource type="Texture2D" uid="uid://c4mwrdfuv0dhg" path="res://Assets/Sprites/objects/Graffiti/Letters/M1.png" id="182_mar8x"]
+[ext_resource type="Texture2D" uid="uid://b5h8mj0mo205j" path="res://Assets/Sprites/objects/Graffiti/Letters/U1.png" id="183_fmryf"]
+[ext_resource type="Texture2D" uid="uid://ccujpisun0lcx" path="res://Assets/Sprites/objects/Graffiti/Letters/P1.png" id="184_3baq3"]
+[ext_resource type="Texture2D" uid="uid://sksyuuejy55q" path="res://Assets/Sprites/objects/Graffiti/Letters/N1.png" id="186_ixhx3"]
+[ext_resource type="Texture2D" uid="uid://2xcm5rpe04yk" path="res://Assets/Sprites/objects/Graffiti/Letters/H1.png" id="187_55cyc"]
 [ext_resource type="Texture2D" uid="uid://coj5suaqtpldj" path="res://Assets/Sprites/objects/Showcases/2.png" id="187_p7yo7"]
+[ext_resource type="Texture2D" uid="uid://bs4iqjk50bryh" path="res://Assets/Sprites/objects/Graffiti/Letters/C1.png" id="188_acyj7"]
 [ext_resource type="Texture2D" uid="uid://d3bqvb46m11xd" path="res://Assets/Sprites/objects/Showcases/4.png" id="188_e4la5"]
 [ext_resource type="Texture2D" uid="uid://ch5uokgat045o" path="res://Assets/Sprites/objects/Showcases/1.png" id="189_ojn3i"]
 [ext_resource type="Texture2D" uid="uid://br6xlsj2avisk" path="res://Assets/Sprites/objects/Signboards/4.png" id="190_8x5nl"]
@@ -238,6 +244,7 @@
 [ext_resource type="Texture2D" uid="uid://bw6b3ehi63nqp" path="res://Assets/Sprites/objects/Signboards/9.png" id="237_yul73"]
 [ext_resource type="Texture2D" uid="uid://b2gk56q7haeld" path="res://Assets/Sprites/objects/City_Road_Objects/Camera1.png" id="238_mar8x"]
 [ext_resource type="Script" uid="uid://b3a6424t1em6n" path="res://InteractionArea.gd" id="238_uwvpj"]
+[ext_resource type="FontFile" uid="uid://fihqsc3do34g" path="res://Assets/Sprites/UI/Pangolin-Regular.ttf" id="239_ghuny"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7lrv3"]
 texture = ExtResource("2_k3ao8")
@@ -5671,25 +5678,14 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5ivo"]
 size = Vector2(147, 181)
 
-[sub_resource type="Animation" id="Animation_8co2v"]
-resource_name = "new_animation"
-length = 10.0
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_uwvpj"]
-_data = {
-&"new_animation": SubResource("Animation_8co2v")
-}
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ghuny"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uwvpj"]
+font = ExtResource("239_ghuny")
 font_size = 22
 font_color = Color(0.9647059, 0, 0, 1)
 stacked_outline_count = 1
-stacked_shadow_count = 2
-stacked_outline_0/size = 5
-stacked_shadow_0/offset = Vector2(1, 8)
-stacked_shadow_1/offset = Vector2(1, -6)
+stacked_outline_0/size = 12
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_i1jbo")
@@ -5878,18 +5874,6 @@ texture = ExtResource("116_pylca")
 position = Vector2(1558.9999, 531)
 scale = Vector2(1.4123874, 1.5589772)
 texture = ExtResource("117_7onjj")
-
-[node name="Random Objects7" type="Sprite2D" parent="Map Objects"]
-z_index = 1
-position = Vector2(332.99997, 437)
-scale = Vector2(0.19656673, 0.21696815)
-texture = ExtResource("119_p2usd")
-
-[node name="Random Objects8" type="Sprite2D" parent="Map Objects"]
-z_index = 1
-position = Vector2(713, 517)
-scale = Vector2(0.19656673, 0.21696815)
-texture = ExtResource("120_3pau4")
 
 [node name="Random Objects11" type="Sprite2D" parent="Map Objects"]
 position = Vector2(1845.9999, 523)
@@ -6136,6 +6120,16 @@ position = Vector2(3270.9998, 449)
 scale = Vector2(1.4123874, 1.5589772)
 texture = ExtResource("147_wwq2h")
 
+[node name="SpaceBar" type="Sprite2D" parent="Map Objects"]
+position = Vector2(281, 504)
+scale = Vector2(2.625, 2.625)
+texture = ExtResource("160_3baq3")
+
+[node name="UpArrow" type="Sprite2D" parent="Map Objects"]
+position = Vector2(727, 577)
+scale = Vector2(2.8896477, 2.889648)
+texture = ExtResource("160_40i7d")
+
 [node name="Fences" type="Sprite2D" parent="Map Objects"]
 position = Vector2(109, 511)
 scale = Vector2(1.2874303, 1.5640112)
@@ -6255,17 +6249,62 @@ z_index = 1
 position = Vector2(5606, 514)
 texture = ExtResource("182_b30qb")
 
+[node name="J1" type="Sprite2D" parent="Map Objects"]
+position = Vector2(684, 451)
+scale = Vector2(2.2142856, 2.2142856)
+texture = ExtResource("181_yul73")
+
+[node name="M1" type="Sprite2D" parent="Map Objects"]
+position = Vector2(727, 449)
+scale = Vector2(2, 2)
+texture = ExtResource("182_mar8x")
+
+[node name="U1" type="Sprite2D" parent="Map Objects"]
+position = Vector2(704, 450.00003)
+scale = Vector2(1.7500019, 1.7500017)
+texture = ExtResource("183_fmryf")
+
+[node name="P1" type="Sprite2D" parent="Map Objects"]
+position = Vector2(758, 452)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("184_3baq3")
+
+[node name="P2" type="Sprite2D" parent="Map Objects"]
+position = Vector2(395, 411)
+scale = Vector2(1.9499974, 1.9499972)
+texture = ExtResource("184_3baq3")
+offset = Vector2(-56.89653, -4.4827576)
+
+[node name="U2" type="Sprite2D" parent="Map Objects"]
+position = Vector2(397.00003, 411)
+scale = Vector2(1.9166633, 1.9166633)
+texture = ExtResource("183_fmryf")
+offset = Vector2(-49.224472, -4.4081726)
+
+[node name="N1" type="Sprite2D" parent="Map Objects"]
+position = Vector2(391, 410.00003)
+scale = Vector2(1.6000012, 1.600001)
+texture = ExtResource("186_ixhx3")
+offset = Vector2(-43.33333, -5.4166565)
+
+[node name="H1" type="Sprite2D" parent="Map Objects"]
+position = Vector2(370, 405)
+scale = Vector2(1.7499982, 1.7499979)
+texture = ExtResource("187_55cyc")
+offset = Vector2(-5.5813904, -2.5581436)
+
+[node name="C1" type="Sprite2D" parent="Map Objects"]
+position = Vector2(378.00003, 408.00003)
+scale = Vector2(1.7, 1.6999997)
+texture = ExtResource("188_acyj7")
+offset = Vector2(-21.249992, -4.3749924)
+
 [node name="Graffiti" type="Node2D" parent="."]
 
 [node name="2Squad13" type="Sprite2D" parent="Graffiti"]
 position = Vector2(2509.9998, 616)
 scale = Vector2(1.637931, 1.6)
 texture = ExtResource("159_tag6f")
-
-[node name="7Dangerarea" type="Sprite2D" parent="Graffiti"]
-position = Vector2(534.9255, 705.87494)
-scale = Vector2(2.5159583, 2.515958)
-texture = ExtResource("160_yx1as")
 
 [node name="KillZone" type="Area2D" parent="."]
 
@@ -10107,11 +10146,6 @@ position = Vector2(7237, 406.99997)
 rotation = 3.126749
 scale = Vector2(4.8476563, 4.8476563)
 texture = ExtResource("235_32knf")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="City/16"]
-libraries = {
-&"": SubResource("AnimationLibrary_uwvpj")
-}
 
 [node name="Skateboard2" type="Sprite2D" parent="City"]
 z_index = -1

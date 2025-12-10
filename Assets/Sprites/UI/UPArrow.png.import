@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwpwbs5cjlc3p"
-path="res://.godot/imported/Puch.png-12ed8b81c01477ef70471937d3d86fdd.ctex"
+uid="uid://cbgye2w8l16yw"
+path="res://.godot/imported/UPArrow.png-5fac25dfdf3688f62119a81d9caf7d5e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/UI/Puch.png"
-dest_files=["res://.godot/imported/Puch.png-12ed8b81c01477ef70471937d3d86fdd.ctex"]
+source_file="res://Assets/Sprites/UI/UPArrow.png"
+dest_files=["res://.godot/imported/UPArrow.png-5fac25dfdf3688f62119a81d9caf7d5e.ctex"]
 
 [params]
 
