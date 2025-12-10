@@ -1,0 +1,76 @@
+{
+"tv_dialog": [
+	"The TV blares. Someone's giving a speech.",
+	"Player: 'Why does that voice make me want to punch a wall?'",
+	"You look up, and your soul leaves your body.",
+	"Commissioner: 'As YOUR new commissioner, parking tickets for EVERYONE! YOU get a ticket! Your MOM gets a ticket! Baby in a stroller? YOU GET A TICKET!'",
+	"Commissioner: 'But why stop there? Jaywalking? TICKET! Littering? TICKET! Breathing MY AIR? STRAIGHT TO JAIL!'",
+	"Commissioner: 'Some call it corruption. I call it a successful revenue stream. BAHAHAHAHA!'",
+	"News Reporter: 'May God help us. Back to you, Linda-'",
+	"Player: 'THAT'S the psychopath who gave me my ticket and kickstarted all of my debt! He ruined my LIFE and they made him COMMISSIONER?!'",
+    "Your left eye starts twitching uncontrollably."
+],
+
+"letters_dialog": [
+	"A stack of threatening letters from the city. Today's gem:",
+	"'Dear citizen scum,",
+	"Your unpaid parking ticket now has late fees. On top of the other late fees. With interest.",
+	"Pay by midnight or face public humiliation, home seizure, a visit from Officer Knuckles, and much more.",
+	"Warm regards,",
+    "Your Loving Municipal Government'"
+],
+
+"toilet_dialog": [
+	"Player: 'Last night was...'",
+    "Player: 'We don't talk about last night.'"
+],
+
+"shower_dialog": [
+	"Player: 'Already showered.'",
+	"Player: 'TWICE.'",
+    "Player: 'Still feel dirty.'"
+],
+
+"couch_dialog": [
+    "Player: 'If I sit, I'm not getting back up. Not today.'"
+],
+
+"fridge_dialog": [
+	"Empty. Completely empty.",
+	"Even your milk is gone.",
+	"Just like dad."
+],
+
+"garbage_dialog": [
+	"Your trash can is 60% takeout containers, 40% shame.",
+    "Crumpled bills line the bottom. You feel a deep sense of dread."
+],
+
+"bed_dialog": [
+	"Your sheets look like they fought a tornado.",
+    "The tornado won."
+],
+
+"door_locked": [
+	"Player: 'I should probably find out what's happening in the world first.'",
+	"Player: 'Not that I care...'",
+    "Player: 'But maybe I should check the news or something else in my house.'"
+],
+
+"door_unlocked": [
+	"Player: 'Alright, this is it.'",
+	"Player: 'Time to have a conversation with the commissioner.'",
+    "Player: 'A physical conversation.'"
+],
+
+"commissioner": [
+	"Player: 'Here we are.'",
+	"Player: 'Face to face with public enemy number one.'",
+	"Player: 'Was this an overreaction to a parking ticket?'",
+	"Player: '...'",
+	"Player: '......'",
+	"Player: '.........'",
+    "Player: '............Nah.'"
+]
+
+}
