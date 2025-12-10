@@ -47,7 +47,7 @@ texture_pressed = ExtResource("5_cwbci")
 [node name="7" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(581, 329)
-scale = Vector2(0.49479166, 0.49382716)
+scale = Vector2(0.5069444, 0.52160496)
 texture = ExtResource("6_cwbci")
 
 [node name="TitleThingy" type="Sprite2D" parent="."]

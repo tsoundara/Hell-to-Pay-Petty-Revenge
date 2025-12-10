@@ -1,4 +1,4 @@
-[gd_scene load_steps=380 format=4 uid="uid://dhro26orw11l7"]
+[gd_scene load_steps=383 format=4 uid="uid://dhro26orw11l7"]
 
 [ext_resource type="Texture2D" uid="uid://da6jcageyp4ah" path="res://Assets/Sprites/Tiles/city/Tile_01.png" id="1_cno1q"]
 [ext_resource type="Script" path="res://Assets/Scripts/main.gd" id="1_i1jbo"]
@@ -5678,6 +5678,44 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5ivo"]
 size = Vector2(147, 181)
 
+[sub_resource type="Animation" id="Animation_3baq3"]
+resource_name = "arrow"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("16:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.0333333, 1.9666667, 2.9333334, 4.0666666, 4.9333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.07960967, -5.3628325), Vector2(0.012247719, -0.82505655), Vector2(0.08879539, -5.9816203), Vector2(0.009185813, -0.61879396), Vector2(0.08573349, -5.7753577)]
+}
+
+[sub_resource type="Animation" id="Animation_ixhx3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("16:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ixhx3"]
+_data = {
+&"RESET": SubResource("Animation_ixhx3"),
+&"arrow": SubResource("Animation_3baq3")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ghuny"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uwvpj"]
@@ -5707,7 +5745,7 @@ unique_name_in_owner = true
 
 [node name="Enemy_1" parent="." instance=ExtResource("108_g6l5g")]
 z_index = 1
-position = Vector2(331, 561)
+position = Vector2(404, 561)
 attack_cooldown = 0.8
 
 [node name="Enemy_2" parent="." instance=ExtResource("108_g6l5g")]
@@ -10141,11 +10179,20 @@ position = Vector2(7155, 526)
 scale = Vector2(1.3333334, 1.725)
 texture = ExtResource("234_ghuny")
 
-[node name="16" type="Sprite2D" parent="City"]
+[node name="Node2D" type="Node2D" parent="City"]
 position = Vector2(7237, 406.99997)
 rotation = 3.126749
 scale = Vector2(4.8476563, 4.8476563)
+
+[node name="16" type="Sprite2D" parent="City/Node2D"]
+scale = Vector2(1.0000001, 1.0000001)
 texture = ExtResource("235_32knf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="City/Node2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_ixhx3")
+}
+autoplay = "arrow"
 
 [node name="Skateboard2" type="Sprite2D" parent="City"]
 z_index = -1
@@ -10159,14 +10206,25 @@ position = Vector2(5232, 431)
 texture = ExtResource("237_yul73")
 
 [node name="Camera1" type="Sprite2D" parent="City"]
-position = Vector2(6940, 289.99997)
-scale = Vector2(1.6538461, 1.6538461)
+position = Vector2(6932, 293.00003)
+scale = Vector2(2.5961564, 2.5961564)
 texture = ExtResource("238_mar8x")
 
-[node name="Camera3" type="Sprite2D" parent="City"]
-position = Vector2(7100.0005, 328)
-scale = Vector2(1.5, 1.5)
+[node name="Camera4" type="Sprite2D" parent="City"]
+position = Vector2(23514.002, 373.00006)
+scale = Vector2(5.9648705, 5.9648705)
 texture = ExtResource("158_1gu4w")
+
+[node name="Camera3" type="Sprite2D" parent="City"]
+position = Vector2(7107.068, 334.125)
+scale = Vector2(2.4423084, 2.4423084)
+texture = ExtResource("158_1gu4w")
+
+[node name="Camera5" type="Sprite2D" parent="City"]
+position = Vector2(6782.0005, 413)
+scale = Vector2(2.4423084, 2.4423084)
+texture = ExtResource("158_1gu4w")
+flip_h = true
 
 [node name="Door" parent="." instance=ExtResource("221_085i1")]
 z_index = -1
