@@ -1294,5 +1294,4 @@ position = Vector2(434, 398)
 unique_name_in_owner = true
 
 [node name="FinalBoss" parent="." instance=ExtResource("18_1hwkl")]
-position = Vector2(634.00006, 392)
-scale = Vector2(0.495, 0.495)
+position = Vector2(634, 399)

@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://csab7twrw27sg" path="res://Assets/Sprites/objects/office/file_cabinets_full_open.png" id="15_ivf2y"]
 [ext_resource type="Shader" uid="uid://bfee5qkrmn0y0" path="res://Assets/Scripts/2D_outlines.gdshader" id="15_yydde"]
 [ext_resource type="Texture2D" uid="uid://bdsflhcah14ne" path="res://Assets/Sprites/objects/house/door.png" id="16_ctx1q"]
-[ext_resource type="PackedScene" uid="uid://bw28p5nhmkosm" path="res://Assets/Scenes/enemy.tscn" id="17_ivf2y"]
+[ext_resource type="PackedScene" uid="uid://cgu1bfeixihfb" path="res://Assets/Scenes/final_boss.tscn" id="17_ivf2y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6yl4o"]
 texture = ExtResource("2_2lsnc")
@@ -456,5 +456,5 @@ position = Vector2(856, 335.99997)
 scale = Vector2(8, 4.9999995)
 texture = ExtResource("9_ivf2y")
 
-[node name="Enemy_1" parent="." instance=ExtResource("17_ivf2y")]
-position = Vector2(646, 400)
+[node name="FinalBoss" parent="." instance=ExtResource("17_ivf2y")]
+position = Vector2(623, 399)

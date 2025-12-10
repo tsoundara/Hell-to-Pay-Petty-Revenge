@@ -15,6 +15,7 @@ extends CharacterBody2D
 @onready var attack_area: Area2D = $AttackArea
 @onready var attack_cooldown_timer: Timer = $AttackCooldownTimer
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var health_bar: ProgressBar = $ProgressBar
 
 # --- STATE VARIABLES ---
 var current_health: int
@@ -33,6 +34,10 @@ func _ready() -> void:
 	
 	# Set initial attack area position (assuming boss faces right by default)
 	attack_area.position.x = attack_hitbox_offset_x
+	
+	health_bar.max_value = max_health
+	health_bar.value = current_health
+	health_bar.show()
 
 # --- PHYSICS PROCESS (Movement & AI Logic) ---
 func _physics_process(delta: float) -> void:
@@ -123,6 +128,7 @@ func take_damage(amount: int, knockback_force: Vector2) -> void:
 		return
 		
 	current_health -= amount
+	health_bar.value = current_health
 	flash_red()
 	
 	if current_health <= 0:
@@ -142,6 +148,7 @@ func die() -> void:
 	velocity = Vector2.ZERO
 	collision_shape.set_deferred("disabled", true) # Disable main body collision
 	attack_area.monitoring = false
+	health_bar.hide()
 	
 	#// Wait for death animation, then remove the boss
 	await animated_sprite.animation_finished
