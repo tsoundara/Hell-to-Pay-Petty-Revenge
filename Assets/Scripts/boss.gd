@@ -141,7 +141,7 @@ func _apply_damage(body: Node) -> void:
 		var knockback_direction = sign(body.global_position.x - global_position.x)
 		var knockback_force = Vector2(knockback_direction * player_knockback_x, player_knockback_y)
 		body.take_damage(2, knockback_force)
-	attack_area.monitoring = false
+	attack_area.set_deferred("monitoring", false)
 
 # --- STATS AND DAMAGE ---
 func take_damage(amount: int, knockback_force: Vector2) -> void:
